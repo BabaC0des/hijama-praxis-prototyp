@@ -57,7 +57,7 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;line-height:1.06;letter
 /* ---------------- header ---------------- */
 header.site{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
   padding:18px clamp(20px,4vw,46px);transition:background .5s var(--ease),box-shadow .5s var(--ease),padding .4s}
-header.site.scrolled{background:rgba(255,248,241,.85);backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 1px 0 var(--line);padding-top:12px;padding-bottom:12px}
+header.site.scrolled{background:rgba(255,248,241,.95);box-shadow:0 1px 0 var(--line);padding-top:12px;padding-bottom:12px}
 .brand{display:flex;align-items:center;gap:.6rem;line-height:1}
 .brand .logo{height:38px;width:auto;display:block}
 .brand b{font-family:var(--serif);font-weight:500;font-size:1.4rem;letter-spacing:.01em;color:var(--plum)}
@@ -82,7 +82,7 @@ nav.main a:hover::after,nav.main a.active::after{width:100%}
   radial-gradient(55% 60% at 12% 88%, rgba(239,207,114,.55), transparent 62%),
   radial-gradient(50% 50% at 65% 90%, rgba(196,47,103,.30), transparent 60%),
   linear-gradient(160deg,#FFF1E6,#FCE6DA 55%,#FBE7CB)}
-.hero-bg .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;will-change:transform}
+.hero-bg .blob{position:absolute;border-radius:50%;filter:blur(44px);opacity:.5;will-change:transform}
 .hero-bg .b1{width:46vw;height:46vw;right:-6vw;top:-8vw;background:radial-gradient(circle,rgba(216,85,111,.7),transparent 62%);animation:float1 30s ease-in-out infinite alternate}
 .hero-bg .b2{width:40vw;height:40vw;left:-8vw;bottom:-10vw;background:radial-gradient(circle,rgba(239,207,114,.75),transparent 64%);animation:float2 38s ease-in-out infinite alternate}
 @keyframes float1{to{transform:translate(-6vw,5vh) scale(1.12)}}
