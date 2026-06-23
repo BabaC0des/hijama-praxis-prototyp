@@ -1,0 +1,17 @@
+---
+import { BOOKING, PHONE, PHONE_HREF, EMAIL, ADDRESS, MAPS } from "../consts";
+---
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div class="col brandcol">
+        <a href="/" class="brand"><img class="logo" src="/hijama-logo.png" alt="" /><b>Hijama</b><span>Praxis · Zürich</span></a>
+        <p>Therapeut für Hijama, Akupressur &amp; Prophetenmedizin in Dietlikon bei Zürich.</p>
+      </div>
+      <div class="col"><h4>Behandlungen</h4><a href="/hijama">Hijama</a><a href="/akupressur">Akupressur</a><a href="/massage">Massage &amp; Deep Tissue</a><a href="/behandlungsmethoden">Alle Methoden</a></div>
+      <div class="col"><h4>Praxis</h4><a href="/ueber-mich">Über mich</a><a href="/preise">Preise</a><a href="/kontakt">Kontakt</a><a href={BOOKING} target="_blank" rel="noopener">Termin buchen</a></div>
+      <div class="col"><h4>Kontakt</h4><a href={PHONE_HREF}>{PHONE}</a><a href={`mailto:${EMAIL}`}>{EMAIL}</a><a href={MAPS} target="_blank" rel="noopener">{ADDRESS}</a></div>
+    </div>
+    <div class="foot-cr"><span>© 2024 Nazmi Bunjaku · hijama-praxis.ch — Prototyp</span><span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span></div>
+  </div>
+</footer>

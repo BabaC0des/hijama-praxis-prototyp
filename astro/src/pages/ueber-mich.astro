@@ -1,0 +1,54 @@
+---
+import Base from "../layouts/Base.astro";
+import { BOOKING } from "../consts";
+---
+<Base
+  title="Über mich — Nazmi Bunjaku · Hijama Praxis Zürich"
+  description="Nazmi Bunjaku — diplomierter Hijama- & Akupressur-Therapeut in Dietlikon bei Zürich. Werdegang seit 2006."
+>
+  <section class="banner">
+    <div class="wrap">
+      <div class="crumb reveal"><a href="/">Start</a> · Über mich</div>
+      <h1 class="reveal d1">Nazmi Bunjaku</h1>
+      <p class="reveal d2">Diplomierter Hijama- &amp; Akupressur-Therapeut und Heilpraktiker — seit 2006 mit Leidenschaft im Einsatz.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="block">
+      <div class="wrap" style="display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(36px,6vw,80px);align-items:start">
+        <img class="reveal" src="/img/nazmi.jpg" alt="Nazmi Bunjaku — Therapeut" onerror="this.style.opacity=0" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block;border:1px solid var(--line)" />
+        <div class="prose">
+          <blockquote class="reveal">Die Art, wie ich jemandem begegne und ihn behandle, sagt aus, was für ein Mensch ich bin.</blockquote>
+          <p class="reveal">Seit 2006 begleite ich Menschen auf ihrem Weg zu mehr Wohlbefinden. Was als persönliche Entdeckung der Hijama begann, ist heute meine Berufung — mit grösstem Wert auf Hygiene, Achtsamkeit und eine Behandlung, die wirklich auf den Menschen eingeht.</p>
+          <h3 class="reveal">Mein Werdegang</h3>
+          <div class="timeline reveal">
+            <div class="tl"><div class="yr">2006</div><p>Entdeckung der Hijama-Therapie und Beginn der persönlichen Auseinandersetzung.</p></div>
+            <div class="tl"><div class="yr">2006–2010</div><p>Erlernen der traditionellen Hijama- (Schröpf-) Techniken.</p></div>
+            <div class="tl"><div class="yr">seit 2010</div><p>Anwendung der Behandlungen bei Familie und Bekannten — mit durchweg positiven Ergebnissen.</p></div>
+            <div class="tl"><div class="yr">2017</div><p>Zertifizierung in Schröpftherapie.</p></div>
+            <div class="tl"><div class="yr">2020</div><p>Ausbildung in Akupressur an zwei Instituten (Paracelsus ZH und BioMedica BS).</p></div>
+          </div>
+          <h3 class="reveal">Meine Behandlungsmethoden</h3>
+          <div class="chiplist reveal">
+            <span class="chip">Hijama</span><span class="chip">Akupressur</span><span class="chip">Massage</span>
+            <span class="chip">Deep Tissue</span><span class="chip">Gua Sha / Graston</span><span class="chip">Moxa</span><span class="chip">Naturmedizin</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <h2>Lern mich kennen</h2>
+          <p>Über 1000 zufriedene Menschen vertrauen auf Professionalität, Hygiene und Wirkung.</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+            <a href={BOOKING} target="_blank" rel="noopener" class="btn btn-lg magnetic" style="background:#fff;color:var(--magenta)">Termin buchen</a>
+            <a href="/kontakt" class="btn btn-ghost btn-lg magnetic" style="color:#fff;border-color:rgba(255,255,255,.5)">Kontakt</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

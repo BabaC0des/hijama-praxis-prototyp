@@ -1,0 +1,23 @@
+---
+import { BOOKING, PHONE, PHONE_HREF, NAV } from "../consts";
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+---
+<header class="site" id="header">
+  <a href="/" class="brand">
+    <img class="logo" src="/hijama-logo.png" alt="Hijama Praxis Logo" />
+    <b>Hijama</b><span>Praxis · Zürich</span>
+  </a>
+  <nav class="main">
+    {NAV.map((n) => <a href={n.href} class={path === n.href ? "active" : ""}>{n.label}</a>)}
+  </nav>
+  <div class="nav-cta">
+    <a href={PHONE_HREF} class="btn btn-ghost magnetic">{PHONE}</a>
+    <a href={BOOKING} target="_blank" rel="noopener" class="btn btn-primary magnetic">Termin</a>
+    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="menuClose" aria-label="Schliessen">&times;</button>
+  {NAV.map((n) => <a href={n.href}>{n.label}</a>)}
+</div>

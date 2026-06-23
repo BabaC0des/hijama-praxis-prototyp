@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import { BOOKING, PHONE, PHONE_HREF } from "../consts";
+---
+<Base
+  title="Preise — Hijama Praxis Zürich"
+  description="Preise der Hijama Praxis Dietlikon: Hijama, Akupressur, Massage, Deep Tissue. Akupressur über Zusatzversicherung möglich."
+>
+  <section class="banner">
+    <div class="wrap">
+      <div class="crumb reveal"><a href="/">Start</a> · Preise</div>
+      <h1 class="reveal d1">Preise</h1>
+      <p class="reveal d2">Transparent und fair. Akupressur wird über viele Zusatzversicherungen abgerechnet, übrige Behandlungen zu Privattarifen.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="block">
+      <div class="wrap">
+        <div class="price-wrap reveal">
+          <div class="prow head"><div class="pname">Behandlung</div><div>60 Min.</div><div>75 Min.</div><div>90 Min.</div></div>
+          <div class="prow"><div class="pname">Hijama / Schröpfen<span>nass &amp; trocken</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
+          <div class="prow"><div class="pname">Akupressur<span>via Zusatzversicherung möglich</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
+          <div class="prow"><div class="pname">Massage</div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
+          <div class="prow"><div class="pname">Gua Sha / Graston</div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
+          <div class="prow"><div class="pname">Deep Tissue Massage</div><div class="cost" data-d="60 Min.">200<small> CHF</small></div><div class="cost" data-d="75 Min.">250<small> CHF</small></div><div class="cost" data-d="90 Min.">280<small> CHF</small></div></div>
+        </div>
+        <div class="price-note reveal d1"><span>Auswärts- &amp; Hausbehandlungen sowie Notfälle (ausserhalb der Öffnungszeiten) auf Anfrage</span><span>Preis je nach Distanz, Zeit &amp; Personenzahl</span></div>
+        <div class="prose reveal d1" style="margin-top:40px">
+          <h3>Krankenkassen</h3>
+          <p>Die Praxis ist EMR-anerkannt und wird von rund 40 Zusatzversicherungen anerkannt. Akupressur kann je nach Police über die Zusatzversicherung abgerechnet werden. Frag im Zweifel bei deiner Krankenkasse nach der Kostenübernahme für Komplementärtherapie / EMR.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <h2>Termin reservieren</h2>
+          <p>Online buchen oder direkt anrufen — ich freue mich auf dich.</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+            <a href={BOOKING} target="_blank" rel="noopener" class="btn btn-lg magnetic" style="background:#fff;color:var(--magenta)">Termin buchen</a>
+            <a href={PHONE_HREF} class="btn btn-ghost btn-lg magnetic" style="color:#fff;border-color:rgba(255,255,255,.5)">{PHONE}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
