@@ -304,3 +304,17 @@ footer.site{background:var(--plum);color:rgba(252,236,227,.66);padding:60px 0 38
   .reveal{opacity:1;transform:none;transition:none}
   .hero-bg .blob,.hero-photo{animation:none}.scroll-hint{display:none}
 }
+
+/* ---- Google Translate widget (language switcher) ---- */
+.goog-te-banner-frame,.skiptranslate>iframe{display:none!important}
+body{top:0!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
+.lang-switch .goog-te-gadget{font-size:0!important;color:transparent;line-height:0}
+.lang-switch .goog-te-gadget span,.lang-switch .goog-te-gadget a,.lang-switch .goog-te-gadget img{display:none!important}
+.lang-switch .goog-te-gadget .goog-te-combo{
+  font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--plum);line-height:1.2;
+  background:transparent;border:1.5px solid var(--line-strong);border-radius:999px;
+  padding:.42rem .8rem;margin:0;cursor:pointer;outline:none}
+.lang-switch .goog-te-gadget .goog-te-combo:hover{border-color:var(--magenta);color:var(--magenta)}
+.mobile-menu .lang-switch{margin-top:26px}
+.mobile-menu .lang-switch .goog-te-combo{font-size:1.15rem;padding:.6rem 1.1rem}

@@ -52,4 +52,28 @@
       el.addEventListener('mouseleave', function(){ el.style.transform=''; });
     });
   }
+
+  /* language switcher — Google website translator (the same engine GTranslate uses) */
+  (function(){
+    var host = document.createElement('div');
+    host.id = 'google_translate_element';
+    host.className = 'lang-switch';
+    function place(){
+      var m = document.getElementById('mobileMenu');
+      var n = document.querySelector('.nav-cta');
+      if(innerWidth <= 760 && m){ if(host.parentElement !== m) m.appendChild(host); }
+      else if(n){ if(host.parentElement !== n) n.insertBefore(host, n.firstChild); }
+    }
+    place(); addEventListener('resize', place);
+    window.googleTranslateElementInit = function(){
+      new google.translate.TranslateElement(
+        {pageLanguage:'de', includedLanguages:'de,en,ar,sq,tr', autoDisplay:false},
+        'google_translate_element');
+    };
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(s);
+    /* keep Google's injected top-offset from pushing the page down */
+    setInterval(function(){ if(document.body.style.top && document.body.style.top !== '0px') document.body.style.top = '0px'; }, 600);
+  })();
 })();
