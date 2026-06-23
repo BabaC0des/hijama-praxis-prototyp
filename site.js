@@ -29,13 +29,7 @@
     if(a.getAttribute('href') === page) a.classList.add('active');
   });
 
-  /* smooth scroll for in-page anchors (Lenis if present) */
-  var lenis = null;
-  if(window.Lenis && !reduce){
-    lenis = new Lenis({lerp:.09});
-    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-  }
+  /* smooth scroll for in-page anchors — native only, no drag/inertia library */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var id = a.getAttribute('href');
@@ -43,8 +37,7 @@
       var el = document.querySelector(id);
       if(!el) return;
       e.preventDefault();
-      if(lenis) lenis.scrollTo(el, {offset:-70, duration:1.2});
-      else el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+      el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
     });
   });
 
