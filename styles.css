@@ -275,8 +275,13 @@ footer.site{background:var(--plum);color:rgba(252,236,227,.66);padding:60px 0 38
 }
 /* ---- mobile polish ---- */
 @media(max-width:760px){
-  /* stack every inline 2-column grid (Wirkung, Über-Teaser, About, Galerie …) */
-  [style*="grid-template-columns"]{grid-template-columns:1fr !important}
+  /* stack every inline 2-column grid (Wirkung, Über-Teaser, About, Galerie …)
+     use block flow, not 1-col grid, to avoid grid-row height quirks with aspect-ratio items */
+  [style*="grid-template-columns"]{display:block !important}
+  [style*="grid-template-columns"] > * + *{margin-top:34px}
+  /* sticky portrait must not stay pinned & overlap the timeline on mobile
+     (relative, NOT static — keeps it as the positioning context for its absolute <img>) */
+  [style*="position:sticky"]{position:relative !important}
   /* compact header so nothing overflows */
   header.site{padding-left:16px;padding-right:16px}
   .brand .logo{height:30px}
@@ -292,7 +297,8 @@ footer.site{background:var(--plum);color:rgba(252,236,227,.66);padding:60px 0 38
   .banner{padding:130px 0 50px}
   .cta-band{padding:36px 22px}
   /* portrait/figure blocks: cap height so they don't get huge when stacked */
-  #ueber .reveal[style*="aspect-ratio"], .about .reveal[style*="aspect-ratio"]{max-width:360px;margin:0 auto}
+  /* portrait image: cap & center when stacked */
+  img[style*="aspect-ratio:4/5"]{max-width:300px;margin-left:auto;margin-right:auto}
 }
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
