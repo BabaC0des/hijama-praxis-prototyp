@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="hijama-logo.png">
 <style>
   #scene{position:absolute;inset:0;z-index:1;width:100%;height:100%}
   /* floating ultra-real rendered cup (transparent PNG) on the right */
@@ -64,7 +65,7 @@
 <!-- ===== HERO (Foto + Zoom) ===== -->
 <section class="hero" id="start">
   <div class="hero-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
-  <canvas id="scene"></canvas>
+  <div class="hero-cup-wrap" id="heroCupWrap"><img class="hero-cup" src="cup.webp" width="850" height="1043" alt="Schröpfglas — Hijama Praxis" decoding="async" fetchpriority="high"></div>
   <div class="wrap">
     <div class="hero-inner">
       <p class="eyebrow reveal">Therapeut für Hijama, Akupressur &amp; Prophetenmedizin</p>
@@ -135,7 +136,7 @@
 <!-- Über mich teaser -->
 <section class="block" id="ueber">
   <div class="wrap" style="display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:center">
-    <div class="reveal" style="aspect-ratio:4/5;border-radius:20px;background:var(--grad-soft);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--ink-faint);font-family:var(--serif);font-style:italic;padding:30px">Portrait<br>Nazmi Bunjaku<br><small>(Foto folgt)</small></div>
+    <div class="reveal" style="aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--grad-soft);border:1px solid var(--line);position:relative;display:grid;place-items:center;text-align:center;color:var(--ink-faint);font-family:var(--serif);font-style:italic;padding:30px">Portrait Nazmi<br><small>img/nazmi.jpg</small><img src="img/nazmi.jpg" alt="Nazmi Bunjaku" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
     <div>
       <p class="eyebrow reveal">Über mich</p>
       <blockquote class="reveal d1" style="font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.25;color:var(--plum);margin:1rem 0">„Die Art, wie ich jemandem begegne und ihn behandle, sagt aus, was für ein Mensch ich bin."</blockquote>
@@ -208,104 +209,24 @@
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="site.js" defer></script>
 
-<!-- Live 3D hero: real glass cup, slow rotation around its own axis -->
-<script type="importmap">
-{ "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-}}
-</script>
-<script type="module">
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const canvas = document.getElementById('scene');
-let renderer;
-try { renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true}); } catch(e){ renderer = null; }
-if (renderer) init();
-
-function init(){
-  renderer.setPixelRatio(Math.min(devicePixelRatio||1, 1.5));
-  const hero = document.querySelector('.hero');
-  const W = () => hero.clientWidth, H = () => hero.clientHeight;
-  renderer.setSize(W(), H());
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.98;
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(38, W()/H(), 0.1, 100);
-  camera.position.set(0, 0, 6.2);
-
-  // warm sunset environment -> reflections + transmission tint blend with the pink hero
-  (function(){
-    const c=document.createElement('canvas'); c.width=512; c.height=256; const x=c.getContext('2d');
-    const g=x.createLinearGradient(0,0,0,256);
-    g.addColorStop(0,'#f4d7c0'); g.addColorStop(.4,'#ecc0a2'); g.addColorStop(.72,'#d88e76'); g.addColorStop(1,'#b5876f');
-    x.fillStyle=g; x.fillRect(0,0,512,256);
-    x.globalCompositeOperation='lighter';
-    for(const [bx,by,r,a] of [[130,55,95,0.95],[380,90,62,0.6],[250,40,40,0.85]]){
-      const rg=x.createRadialGradient(bx,by,0,bx,by,r); rg.addColorStop(0,'rgba(255,255,255,'+a+')'); rg.addColorStop(1,'rgba(255,255,255,0)');
-      x.fillStyle=rg; x.beginPath(); x.arc(bx,by,r,0,7); x.fill();
-    }
-    const t=new THREE.CanvasTexture(c); t.mapping=THREE.EquirectangularReflectionMapping;
-    const p=new THREE.PMREMGenerator(renderer); scene.environment=p.fromEquirectangular(t).texture; t.dispose(); p.dispose();
-  })();
-  scene.add(new THREE.AmbientLight(0xfff0e0, 0.5));
-  const key=new THREE.DirectionalLight(0xffffff,2.0); key.position.set(3,5,4); scene.add(key);
-  const rim=new THREE.DirectionalLight(0xe0856a,1.2); rim.position.set(-4,-1,2); scene.add(rim);
-
-  const rig  = new THREE.Group(); scene.add(rig);   // placement + tilt + float
-  const spin = new THREE.Group(); rig.add(spin);    // rotation around the cup's own axis
-  let model = null;
-
-  // real glass (transmission) -> clear & see-through, tinted warm by the env
-  const glass = new THREE.MeshPhysicalMaterial({
-    color:0xffffff, metalness:0, roughness:0.02,
-    transmission:0.0, opacity:0.22, transparent:true,
-    ior:1.5, clearcoat:1.0, clearcoatRoughness:0.02,
-    envMapIntensity:2.2, depthWrite:false, side:THREE.DoubleSide
+<!-- subtle mouse parallax for the floating cup (translate only, no rotation) -->
+<script>
+(function(){
+  var wrap = document.getElementById('heroCupWrap');
+  if (!wrap) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!matchMedia('(pointer:fine)').matches) return;
+  var tx=0, ty=0, x=0, y=0;
+  addEventListener('pointermove', function(e){
+    tx = ((e.clientX/innerWidth)*2 - 1) * 16;
+    ty = ((e.clientY/innerHeight)*2 - 1) * 11;
   });
-
-  new GLTFLoader().load('schroepfkopf.glb', (gltf) => {
-    model = gltf.scene;
-    model.traverse(o => {
-      if (o.isMesh && o.material) {
-        const n = (o.material.name || '').toLowerCase();
-        if (n.includes('glass') || o.material.transmission > 0.5) o.material = glass;
-      }
-    });
-    const box = new THREE.Box3().setFromObject(model);
-    const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
-    model.position.sub(c);
-    model.scale.setScalar(2.2 / Math.max(s.x, s.y, s.z));
-    spin.add(model);
-    layout();
-  }, undefined, e => console.error('GLB load failed', e));
-
-  let rigX=1.85, rigScale=1.0, rigY=0;
-  function layout(){
-    const w = innerWidth;
-    if (w >= 1100){ rigX=1.85; rigScale=1.0; rigY=0;  hero.classList.remove('hero--top'); }
-    else if (w >= 700){ rigX=0; rigScale=0.9; rigY=1.4; hero.classList.add('hero--top'); }
-    else { rigX=0; rigScale=0.72; rigY=1.5; hero.classList.add('hero--top'); }
-  }
-  layout();
-  addEventListener('resize', () => { renderer.setSize(W(),H()); camera.aspect=W()/H(); camera.updateProjectionMatrix(); layout(); });
-
-  const clock = new THREE.Clock();
-  const nearTop = () => scrollY < innerHeight*1.3;
-  rig.rotation.z = -0.15; // slight lean -> floating look
-  (function loop(){
-    requestAnimationFrame(loop);
-    if (!nearTop()) return;
-    const t = clock.getElapsedTime();
-    rig.position.x = rigX; rig.scale.setScalar(rigScale);
-    rig.position.y = rigY + (reduce ? 0 : Math.sin(t*0.6)*0.06);
-    if (model && !reduce) spin.rotation.y = t * 0.3;   // slow rotation around its own axis
-    renderer.render(scene, camera);
+  (function raf(){
+    x += (tx-x)*0.06; y += (ty-y)*0.06;
+    wrap.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+    requestAnimationFrame(raf);
   })();
-}
+})();
 </script>
 </body>
 </html>
