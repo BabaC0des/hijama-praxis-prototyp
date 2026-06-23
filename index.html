@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hijama Praxis Zürich — Hijama, Akupressur &amp; Prophetenmedizin</title>
+<meta name="description" content="Hijama Praxis in Oberglatt bei Zürich. Therapeut Nazmi Bunjaku für Hijama, Akupressur & Prophetenmedizin. EMR-anerkannt, seit 2006." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* floating ultra-real rendered cup (transparent PNG) on the right */
+  .hero-cup-wrap{position:absolute; top:0; right:3%; bottom:0; width:48%; z-index:1;
+    display:flex; align-items:center; justify-content:center; pointer-events:none;
+    will-change:transform; transition:transform .4s ease-out}
+  .hero-cup{height:86%; width:auto; max-width:100%; object-fit:contain;
+    filter:drop-shadow(0 30px 44px rgba(120,40,30,.20));
+    animation:cupfloat 6.5s ease-in-out infinite; will-change:transform}
+  @keyframes cupfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  /* warm glow behind the glass so the sunset shines through it */
+  .hero .hero-bg::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(30% 42% at 76% 50%, rgba(216,162,74,.30), rgba(200,80,60,.16) 52%, transparent 72%)}
+  @media(max-width:860px){
+    .hero-cup-wrap{width:80%; right:auto; left:10%; top:5%; bottom:auto; height:46%; opacity:.5}
+    .hero{align-items:flex-end} .hero .wrap{padding-bottom:7vh}
+  }
+  @media (prefers-reduced-motion: reduce){ .hero-cup{animation:none} }
+</style>
+</head>
+<body>
+
+<header class="site" id="header">
+  <a href="index.html" class="brand">
+    <img class="logo" src="hijama-logo.png" alt="Hijama Praxis Logo">
+    <b>Hijama</b><span>Praxis · Zürich</span>
+  </a>
+  <nav class="main">
+    <a href="hijama.html">Hijama</a>
+    <a href="akupressur.html">Akupressur</a>
+    <a href="massage.html">Massage</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="preise.html">Preise</a>
+    <a href="kontakt.html">Kontakt</a>
+  </nav>
+  <div class="nav-cta">
+    <a href="tel:+41764949777" class="btn btn-ghost magnetic">076 494 97 77</a>
+    <a href="https://app.healthadvisor.ch/bookings/9dcb36f1aca440c89dacd7bbfc4e072a0908124e/treatment?language=de" target="_blank" rel="noopener" class="btn btn-primary magnetic">Termin</a>
+    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="menuClose" aria-label="Schliessen">&times;</button>
+  <a href="hijama.html">Hijama</a>
+  <a href="akupressur.html">Akupressur</a>
+  <a href="massage.html">Massage</a>
+  <a href="ueber-mich.html">Über mich</a>
+  <a href="preise.html">Preise</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<!-- ===== HERO (Foto + Zoom) ===== -->
+<section class="hero" id="start">
+  <div class="hero-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
+  <div class="hero-cup-wrap" id="heroCupWrap"><img class="hero-cup" src="cup.png" alt="Schröpfglas — Hijama Praxis" decoding="async"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="eyebrow reveal">Therapeut für Hijama, Akupressur &amp; Prophetenmedizin</p>
+      <h1 class="reveal d1">Heilung, die<br>unter die <em>Haut</em> geht.</h1>
+      <p class="lede reveal d2">Traditionelles Schröpfen, achtsam &amp; hygienisch — in der Praxis in Oberglatt bei Zürich.</p>
+      <div class="hero-cta reveal d3">
+        <a href="https://app.healthadvisor.ch/bookings/9dcb36f1aca440c89dacd7bbfc4e072a0908124e/treatment?language=de" target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic">Termin vereinbaren</a>
+        <a href="#behandlungen" class="btn btn-ghost btn-lg magnetic">Behandlungen ansehen</a>
+      </div>
+      <div class="hero-trust reveal d4">
+        <span>EMR-anerkannt · ~40 Krankenkassen</span>
+        <span>Diplomiert &amp; zertifiziert</span>
+        <span>Seit 2006 · 1000+ Behandlungen</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><span class="bar"></span></div>
+</section>
+
+<main>
+<!-- trust strip -->
+<div class="strip">
+  <div class="cell reveal"><div class="num">~40</div><h3>Anerkannt bei Krankenkassen</h3><p>EMR-zertifiziert und von rund 40 Zusatzversicherungen anerkannt.</p></div>
+  <div class="cell reveal d1"><div class="num">Dipl.</div><h3>Geprüft &amp; zertifiziert</h3><p>Ausgebildet und diplomiert an staatlich anerkannten Akademien.</p></div>
+  <div class="cell reveal d2"><div class="num">2006</div><h3>Erfahrung &amp; Leidenschaft</h3><p>Seit 2006 mit Hingabe für Gesundheit und Wohlbefinden im Einsatz.</p></div>
+</div>
+
+<!-- Behandlungen -->
+<section class="block" id="behandlungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow reveal">Behandlungsmethoden</p>
+      <h2 class="reveal d1">Ein Werkzeug für jedes Anliegen.</h2>
+      <p class="reveal d2">Von der klassischen Hijama bis zur tiefen Faszienarbeit — individuell auf dich abgestimmt.</p>
+    </div>
+    <div class="grid">
+      <a class="tcard reveal" href="hijama.html"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 6c6 8 12 14 12 21a12 12 0 1 1-24 0c0-7 6-13 12-21z"/></svg></div><span class="tag">Schröpfen</span><h3>Hijama</h3><p>Nass &amp; trocken — die klassische, reinigende Schröpftherapie.</p><div class="more">Mehr erfahren →</div></a>
+      <a class="tcard reveal d1" href="akupressur.html"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="24" cy="24" r="5"/><circle cx="24" cy="24" r="13"/></svg></div><span class="tag">Druckpunkte</span><h3>Akupressur</h3><p>Stumpfer Druck an definierten Punkten — prophylaktisch &amp; lösend.</p><div class="more">Mehr erfahren →</div></a>
+      <a class="tcard reveal d2" href="massage.html"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 28c5-8 9-8 14 0s9 8 14 0 4-8 8 0"/><path d="M6 18c5-8 9-8 14 0"/></svg></div><span class="tag">Entspannung</span><h3>Massage</h3><p>Lockert die Muskulatur, fördert Durchblutung &amp; tiefe Entspannung.</p><div class="more">Mehr erfahren →</div></a>
+      <a class="tcard reveal" href="massage.html"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 8 8 17l16 9 16-9z"/><path d="M8 25l16 9 16-9M8 33l16 9 16-9"/></svg></div><span class="tag">Tiefengewebe</span><h3>Deep Tissue Massage</h3><p>Intensive Arbeit an tiefen Muskel- &amp; Faszienschichten.</p><div class="more">Mehr erfahren →</div></a>
+      <a class="tcard reveal d1" href="behandlungsmethoden.html"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="10" y="10" width="20" height="10" rx="3" transform="rotate(20 20 15)"/><path d="M26 24 38 38"/></svg></div><span class="tag">Faszien</span><h3>Gua Sha / Graston</h3><p>Schabende Technik, die Faszien löst und die Durchblutung anregt.</p><div class="more">Mehr erfahren →</div></a>
+      <a class="tcard reveal d2" href="behandlungsmethoden.html"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 6c2 8 10 10 10 20a10 10 0 1 1-20 0c0-5 3-7 4-11 2 3 4 3 6 2 1-3-1-7 0-11z"/></svg></div><span class="tag">Wärme</span><h3>Moxa</h3><p>Wohltuende Wärme mit Moxakraut — fördert Energie &amp; Durchblutung.</p><div class="more">Mehr erfahren →</div></a>
+      <a class="tcard reveal" href="behandlungsmethoden.html"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M38 10C20 10 10 20 10 38c18 0 28-10 28-28z"/><path d="M16 32 34 14"/></svg></div><span class="tag">Prophetenmedizin</span><h3>Naturmedizin</h3><p>Ganzheitliche, naturheilkundliche Begleitung.</p><div class="more">Mehr erfahren →</div></a>
+      <a class="tcard reveal d1" href="behandlungsmethoden.html" style="display:flex;flex-direction:column;justify-content:center;background:var(--grad-sunset);color:#fff;border:none"><h3 style="color:#fff">Alle Methoden im Überblick</h3><p style="color:rgba(255,255,255,.9)">Ein kompakter Überblick über alle Behandlungen der Praxis.</p><div class="more" style="color:#fff">Zur Übersicht →</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Wirkung -->
+<section class="block alt" id="wirkung">
+  <div class="wrap" style="display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,6vw,80px);align-items:center">
+    <div>
+      <p class="eyebrow reveal">Wirkung</p>
+      <h2 class="reveal d1" style="font-size:clamp(2rem,4.6vw,3.4rem);font-weight:300;margin-top:.6rem">Mehr Durchblutung.<br>Weniger Schmerz.</h2>
+      <p class="reveal d2" style="color:var(--ink-soft);font-size:1.05rem;margin-top:1rem">Schröpfen fördert die Hautdurchblutung, erhöht die Versorgung mit Sauerstoff &amp; Nährstoffen und hilft, die Blutgefässe zu weiten. Eingesetzt unter anderem bei:</p>
+    </div>
+    <div class="chiplist">
+      <span class="chip reveal">Rückenschmerzen</span><span class="chip reveal">Arthritis</span>
+      <span class="chip reveal d1">Kopfschmerzen</span><span class="chip reveal d1">Migräne</span>
+      <span class="chip reveal d1">Muskelschmerzen</span><span class="chip reveal d2">Ischias</span>
+      <span class="chip reveal d2">Asthma</span><span class="chip reveal d2">Chron. Husten</span>
+      <span class="chip reveal d3">Bronchien</span><span class="chip reveal d3">Verdauung</span>
+      <span class="chip reveal d3">Stress</span>
+    </div>
+  </div>
+</section>
+
+<!-- Über mich teaser -->
+<section class="block" id="ueber">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:center">
+    <div class="reveal" style="aspect-ratio:4/5;border-radius:20px;background:var(--grad-soft);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--ink-faint);font-family:var(--serif);font-style:italic;padding:30px">Portrait<br>Nazmi Bunjaku<br><small>(Foto folgt)</small></div>
+    <div>
+      <p class="eyebrow reveal">Über mich</p>
+      <blockquote class="reveal d1" style="font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.25;color:var(--plum);margin:1rem 0">„Die Art, wie ich jemandem begegne und ihn behandle, sagt aus, was für ein Mensch ich bin."</blockquote>
+      <p class="reveal d2" style="color:var(--ink-soft);font-size:1.05rem">Seit 2006 begleite ich Menschen auf dem Weg zu mehr Wohlbefinden — mit grösstem Wert auf Hygiene, Achtsamkeit und einer Behandlung, die wirklich auf dich eingeht.</p>
+      <p class="reveal d3" style="margin-top:1.4rem"><a href="ueber-mich.html" class="btn btn-ghost magnetic">Meine Geschichte →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- Referenzen -->
+<section class="block alt" id="referenzen">
+  <div class="wrap">
+    <div class="rev-head">
+      <div class="sec-head" style="margin:0"><p class="eyebrow reveal">Referenzen</p><h2 class="reveal d1">Über 1000 zufriedene Menschen.</h2></div>
+      <div class="rev-badge reveal d2"><b>5.0</b><div><div class="stars">★★★★★</div>Google Bewertungen</div></div>
+    </div>
+    <div class="revs">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>Sehr empfehlenswert und ganz klar 5 Sterne! Super freundlicher Kontakt, tolle Therapie.</p><div class="who">Patrick Gut<span>Google Rezension</span></div></div>
+      <div class="rev reveal d1"><div class="stars">★★★★★</div><p>Ein Jahr lang Rückenschmerzen — nach einer Behandlung fast keine Schmerzen mehr.</p><div class="who">Yusuf Sakar<span>Google Rezension</span></div></div>
+      <div class="rev reveal d2"><div class="stars">★★★★★</div><p>Sehr professionell und achtet sehr auf die Hygiene. Nach der ersten Behandlung fühle ich mich bereits besser.</p><div class="who">Marcel Jovanovic<span>Google Rezension</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Preise teaser -->
+<section class="block" id="preise">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow reveal">Preise</p><h2 class="reveal d1">Transparent &amp; fair.</h2><p class="reveal d2">Akupressur über viele Zusatzversicherungen abrechenbar. Übrige Behandlungen zu Privattarifen.</p></div>
+    <div class="price-wrap reveal d1">
+      <div class="prow head"><div class="pname">Behandlung</div><div>60 Min.</div><div>75 Min.</div><div>90 Min.</div></div>
+      <div class="prow"><div class="pname">Hijama / Schröpfen<span>nass &amp; trocken</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
+      <div class="prow"><div class="pname">Akupressur<span>via Zusatzversicherung möglich</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
+      <div class="prow"><div class="pname">Massage &amp; Gua Sha / Graston</div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
+      <div class="prow"><div class="pname">Deep Tissue Massage</div><div class="cost" data-d="60 Min.">200<small> CHF</small></div><div class="cost" data-d="75 Min.">250<small> CHF</small></div><div class="cost" data-d="90 Min.">280<small> CHF</small></div></div>
+    </div>
+    <div class="price-note reveal d2"><span>Auswärts- &amp; Hausbehandlungen sowie Notfälle auf Anfrage</span><span>Preis je nach Distanz, Zeit &amp; Personenzahl</span></div>
+  </div>
+</section>
+
+<!-- Kontakt CTA -->
+<section class="block" id="kontakt">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Bereit für deinen Termin?</h2>
+      <p>Schreib oder ruf einfach an — wir finden gemeinsam einen Termin, der passt. Auch Hausbesuche &amp; Notfälle nach Absprache.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/41764949777" target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic" style="background:#fff;color:var(--magenta)">Per WhatsApp schreiben</a>
+        <a href="tel:+41764949777" class="btn btn-ghost btn-lg magnetic" style="color:#fff;border-color:rgba(255,255,255,.5)">076 494 97 77</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div class="col brandcol">
+        <a href="index.html" class="brand"><img class="logo" src="hijama-logo.png" alt=""><b>Hijama</b><span>Praxis · Zürich</span></a>
+        <p>Therapeut für Hijama, Akupressur &amp; Prophetenmedizin in Oberglatt bei Zürich.</p>
+      </div>
+      <div class="col"><h4>Behandlungen</h4><a href="hijama.html">Hijama</a><a href="akupressur.html">Akupressur</a><a href="massage.html">Massage &amp; Deep Tissue</a><a href="behandlungsmethoden.html">Alle Methoden</a></div>
+      <div class="col"><h4>Praxis</h4><a href="ueber-mich.html">Über mich</a><a href="preise.html">Preise</a><a href="kontakt.html">Kontakt</a><a href="https://app.healthadvisor.ch/bookings/9dcb36f1aca440c89dacd7bbfc4e072a0908124e/treatment?language=de" target="_blank" rel="noopener">Termin buchen</a></div>
+      <div class="col"><h4>Kontakt</h4><a href="tel:+41764949777">076 494 97 77</a><a href="mailto:info@hijama-praxis.ch">info@hijama-praxis.ch</a><a href="https://maps.google.com/?q=Bahnhofstrasse+59+8154+Oberglatt" target="_blank" rel="noopener">Bahnhofstrasse 59, 8154 Oberglatt</a></div>
+    </div>
+    <div class="foot-cr"><span>© 2024 Nazmi Bunjaku · hijama-praxis.ch — Prototyp</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="site.js" defer></script>
+
+<!-- subtle mouse parallax for the floating cup (translate only, no rotation) -->
+<script>
+(function(){
+  var wrap = document.getElementById('heroCupWrap');
+  if (!wrap) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!matchMedia('(pointer:fine)').matches) return;
+  var tx=0, ty=0, x=0, y=0;
+  addEventListener('pointermove', function(e){
+    tx = ((e.clientX/innerWidth)*2 - 1) * 16;
+    ty = ((e.clientY/innerHeight)*2 - 1) * 11;
+  });
+  (function raf(){
+    x += (tx-x)*0.06; y += (ty-y)*0.06;
+    wrap.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+    requestAnimationFrame(raf);
+  })();
+})();
+</script>
+</body>
+</html>
