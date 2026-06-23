@@ -273,6 +273,27 @@ footer.site{background:var(--plum);color:rgba(252,236,227,.66);padding:60px 0 38
   .cost::after{content:attr(data-d);display:block;font-size:.6rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em}
   .foot{flex-direction:column}
 }
+/* ---- mobile polish ---- */
+@media(max-width:760px){
+  /* stack every inline 2-column grid (Wirkung, Über-Teaser, About, Galerie …) */
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important}
+  /* compact header so nothing overflows */
+  header.site{padding-left:16px;padding-right:16px}
+  .brand .logo{height:30px}
+  .brand b{font-size:1.2rem}
+  .brand span{display:none}
+  .nav-cta{gap:10px}
+  .nav-cta .btn{padding:.58rem .95rem;font-size:.8rem}
+  .btn-lg{padding:.85rem 1.3rem;font-size:.92rem}
+  /* scroll hint overlaps content on short hero -> hide */
+  .scroll-hint{display:none}
+  section.block{padding:64px 0}
+  .sec-head{margin-bottom:30px}
+  .banner{padding:130px 0 50px}
+  .cta-band{padding:36px 22px}
+  /* portrait/figure blocks: cap height so they don't get huge when stacked */
+  #ueber .reveal[style*="aspect-ratio"], .about .reveal[style*="aspect-ratio"]{max-width:360px;margin:0 auto}
+}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
   .hero-bg .blob,.hero-photo{animation:none}.scroll-hint{display:none}
