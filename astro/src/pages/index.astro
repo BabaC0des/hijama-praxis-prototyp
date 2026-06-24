@@ -19,7 +19,7 @@ import prices from "../data/prices.json";
         <h1 class="reveal d1">Heilung, die<br />unter die <em>Haut</em> geht.</h1>
         <p class="lede reveal d2">{SITE.heroSub}</p>
         <div class="hero-cta reveal d3">
-          <a href={BOOKING} target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic">Termin vereinbaren</a>
+          <a href={BOOKING} target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic btn-droopy">Termin vereinbaren</a>
           <a href="#behandlungen" class="btn btn-ghost btn-lg magnetic">Behandlungen ansehen</a>
         </div>
       </div>
@@ -128,6 +128,10 @@ import prices from "../data/prices.json";
       </div>
     </section>
   </main>
+
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+    <filter id="drip-goo"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b" /><feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -8" /></filter>
+  </defs></svg>
 
   <script is:inline>
     // Hero cup: mouse parallax + scroll-driven spiral — it descends, drifts & rotates as you scroll, then it's gone past the hero. (Not pinned.)

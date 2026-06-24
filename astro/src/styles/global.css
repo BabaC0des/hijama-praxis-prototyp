@@ -53,6 +53,19 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;line-height:1.06;letter
 .btn-ghost{background:transparent;color:var(--plum);border:1.6px solid var(--line-strong)}
 .btn-ghost:hover{border-color:var(--magenta);color:var(--magenta)}
 .btn-lg{padding:.95rem 1.8rem;font-size:.95rem}
+/* hero "Termin vereinbaren" — melting drips hanging off the bottom edge */
+.btn-droopy{position:relative}
+.btn-droopy::after{
+  content:"";position:absolute;left:0;right:0;top:calc(100% - 12px);height:52px;pointer-events:none;
+  /* goo filter fuses the bar + drips into the button bottom with smooth curved necks */
+  filter:url(#drip-goo);
+  background:
+    linear-gradient(90deg,var(--magenta),#d4566c 48%,var(--coral)) top/100% 20px no-repeat,
+    radial-gradient(28px 30px at 26% 16px,var(--magenta) 0 72%,transparent 73%),
+    radial-gradient(22px 26px at 54% 16px,#d4566c 0 72%,transparent 73%),
+    radial-gradient(32px 36px at 78% 16px,var(--coral) 0 72%,transparent 73%);
+  background-repeat:no-repeat;
+}
 
 /* ---------------- header ---------------- */
 header.site{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
