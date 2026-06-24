@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { BOOKING, WHATSAPP, PHONE, PHONE_HREF } from "../consts";
+import { BOOKING, WHATSAPP, PHONE, PHONE_HREF, SITE } from "../consts";
 ---
 <Base
   title="Hijama Praxis Zürich — Hijama, Akupressur & Prophetenmedizin"
@@ -15,7 +15,7 @@ import { BOOKING, WHATSAPP, PHONE, PHONE_HREF } from "../consts";
       <div class="hero-inner">
         <p class="eyebrow reveal">Therapeut für Hijama, Akupressur &amp; Prophetenmedizin</p>
         <h1 class="reveal d1">Heilung, die<br />unter die <em>Haut</em> geht.</h1>
-        <p class="lede reveal d2">Traditionelles Schröpfen, achtsam &amp; hygienisch — in der Praxis in Dietlikon bei Zürich.</p>
+        <p class="lede reveal d2">{SITE.heroSub}</p>
         <div class="hero-cta reveal d3">
           <a href={BOOKING} target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic">Termin vereinbaren</a>
           <a href="#behandlungen" class="btn btn-ghost btn-lg magnetic">Behandlungen ansehen</a>
@@ -80,8 +80,8 @@ import { BOOKING, WHATSAPP, PHONE, PHONE_HREF } from "../consts";
         <img class="reveal" src="/img/nazmi.jpg" alt="Nazmi Bunjaku" onerror="this.style.opacity=0" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block;border:1px solid var(--line)" />
         <div>
           <p class="eyebrow reveal">Über mich</p>
-          <blockquote class="reveal d1" style="font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.25;color:var(--plum);margin:1rem 0">„Die Art, wie ich jemandem begegne und ihn behandle, sagt aus, was für ein Mensch ich bin."</blockquote>
-          <p class="reveal d2" style="color:var(--ink-soft);font-size:1.05rem">Seit 2006 begleite ich Menschen auf dem Weg zu mehr Wohlbefinden — mit grösstem Wert auf Hygiene, Achtsamkeit und einer Behandlung, die wirklich auf dich eingeht.</p>
+          <blockquote class="reveal d1" style="font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.25;color:var(--plum);margin:1rem 0">„{SITE.aboutQuote}"</blockquote>
+          <p class="reveal d2" style="color:var(--ink-soft);font-size:1.05rem">{SITE.aboutText}</p>
           <p class="reveal d3" style="margin-top:1.4rem"><a href="/ueber-mich" class="btn btn-ghost magnetic">Meine Geschichte →</a></p>
         </div>
       </div>

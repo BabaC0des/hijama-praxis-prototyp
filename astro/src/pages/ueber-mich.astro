@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { BOOKING } from "../consts";
+import { BOOKING, SITE } from "../consts";
 ---
 <Base
   title="Über mich — Nazmi Bunjaku · Hijama Praxis Zürich"
@@ -19,7 +19,7 @@ import { BOOKING } from "../consts";
       <div class="wrap" style="display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(36px,6vw,80px);align-items:start">
         <img class="reveal" src="/img/nazmi.jpg" alt="Nazmi Bunjaku — Therapeut" onerror="this.style.opacity=0" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block;border:1px solid var(--line)" />
         <div class="prose">
-          <blockquote class="reveal">Die Art, wie ich jemandem begegne und ihn behandle, sagt aus, was für ein Mensch ich bin.</blockquote>
+          <blockquote class="reveal">{SITE.aboutQuote}</blockquote>
           <p class="reveal">Seit 2006 begleite ich Menschen auf ihrem Weg zu mehr Wohlbefinden. Was als persönliche Entdeckung der Hijama begann, ist heute meine Berufung — mit grösstem Wert auf Hygiene, Achtsamkeit und eine Behandlung, die wirklich auf den Menschen eingeht.</p>
           <h3 class="reveal">Mein Werdegang</h3>
           <div class="timeline reveal">

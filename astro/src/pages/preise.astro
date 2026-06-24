@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { BOOKING, PHONE, PHONE_HREF } from "../consts";
+import prices from "../data/prices.json";
 ---
 <Base
   title="Preise — Hijama Praxis Zürich"
@@ -19,11 +20,14 @@ import { BOOKING, PHONE, PHONE_HREF } from "../consts";
       <div class="wrap">
         <div class="price-wrap reveal">
           <div class="prow head"><div class="pname">Behandlung</div><div>60 Min.</div><div>75 Min.</div><div>90 Min.</div></div>
-          <div class="prow"><div class="pname">Hijama / Schröpfen<span>nass &amp; trocken</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
-          <div class="prow"><div class="pname">Akupressur<span>via Zusatzversicherung möglich</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
-          <div class="prow"><div class="pname">Massage</div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
-          <div class="prow"><div class="pname">Gua Sha / Graston</div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
-          <div class="prow"><div class="pname">Deep Tissue Massage</div><div class="cost" data-d="60 Min.">200<small> CHF</small></div><div class="cost" data-d="75 Min.">250<small> CHF</small></div><div class="cost" data-d="90 Min.">280<small> CHF</small></div></div>
+          {prices.rows.map((r) => (
+            <div class="prow">
+              <div class="pname">{r.name}{r.sub && <span>{r.sub}</span>}</div>
+              <div class="cost" data-d="60 Min.">{r.p60}<small> CHF</small></div>
+              <div class="cost" data-d="75 Min.">{r.p75}<small> CHF</small></div>
+              <div class="cost" data-d="90 Min.">{r.p90}<small> CHF</small></div>
+            </div>
+          ))}
         </div>
         <div class="price-note reveal d1"><span>Auswärts- &amp; Hausbehandlungen sowie Notfälle (ausserhalb der Öffnungszeiten) auf Anfrage</span><span>Preis je nach Distanz, Zeit &amp; Personenzahl</span></div>
         <div class="prose reveal d1" style="margin-top:40px">

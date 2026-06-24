@@ -1,0 +1,45 @@
+backend:
+  name: github
+  repo: BabaC0des/hijama-praxis-prototyp
+  branch: main
+
+# For local editing without login (run in astro/:  npx @sveltia/cms-proxy-server)
+# local_backend: true
+
+media_folder: "astro/public/img"
+public_folder: "/img"
+
+# UI in German
+locale: de
+
+collections:
+  - name: inhalte
+    label: "Texte & Preise"
+    editor:
+      preview: false
+    files:
+      - name: startseite
+        label: "Startseite & Über mich"
+        file: "astro/src/data/site.json"
+        fields:
+          - { name: heroSub, label: "Hero — Untertitel", widget: string }
+          - { name: aboutQuote, label: "Über mich — Zitat", widget: text }
+          - { name: aboutText, label: "Über mich — Text", widget: text }
+          - { name: phone, label: "Telefon", widget: string }
+          - { name: email, label: "E-Mail", widget: string }
+          - { name: address, label: "Adresse", widget: string }
+      - name: preise
+        label: "Preise"
+        file: "astro/src/data/prices.json"
+        fields:
+          - name: rows
+            label: "Preiszeilen"
+            label_singular: "Preiszeile"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Behandlung", widget: string }
+              - { name: sub, label: "Zusatz (klein, optional)", widget: string, required: false }
+              - { name: p60, label: "60 Min (CHF)", widget: string }
+              - { name: p75, label: "75 Min (CHF)", widget: string }
+              - { name: p90, label: "90 Min (CHF)", widget: string }

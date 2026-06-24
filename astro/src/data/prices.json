@@ -1,0 +1,9 @@
+{
+  "rows": [
+    { "name": "Hijama / Schröpfen", "sub": "nass & trocken", "p60": "120", "p75": "150", "p90": "180" },
+    { "name": "Akupressur", "sub": "via Zusatzversicherung möglich", "p60": "120", "p75": "150", "p90": "180" },
+    { "name": "Massage", "sub": "", "p60": "120", "p75": "150", "p90": "180" },
+    { "name": "Gua Sha / Graston", "sub": "", "p60": "120", "p75": "150", "p90": "180" },
+    { "name": "Deep Tissue Massage", "sub": "", "p60": "200", "p75": "250", "p90": "280" }
+  ]
+}

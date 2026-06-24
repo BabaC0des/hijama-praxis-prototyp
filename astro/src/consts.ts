@@ -1,11 +1,18 @@
-// Central site data — change once, used everywhere.
-export const BOOKING = "https://app.healthadvisor.ch/bookings/9dcb36f1aca440c89dacd7bbfc4e072a0908124e/treatment?language=de";
-export const PHONE = "076 494 97 77";
-export const PHONE_HREF = "tel:+41764949777";
-export const WHATSAPP = "https://wa.me/41764949777";
-export const EMAIL = "info@hijama-praxis.ch";
-export const ADDRESS = "Riedmühlestrasse 16, 8305 Dietlikon";
-export const MAPS = "https://maps.google.com/?q=Riedmühlestrasse+16+8305+Dietlikon";
+// Editable content lives in src/data/*.json (the CMS writes there).
+import site from "./data/site.json";
+
+export const SITE = site;
+
+export const BOOKING =
+  "https://app.healthadvisor.ch/bookings/9dcb36f1aca440c89dacd7bbfc4e072a0908124e/treatment?language=de";
+
+const digits = site.phone.replace(/\D/g, "").replace(/^0/, ""); // "076 …" -> "76…"
+export const PHONE = site.phone;
+export const PHONE_HREF = "tel:+41" + digits;
+export const WHATSAPP = "https://wa.me/41" + digits;
+export const EMAIL = site.email;
+export const ADDRESS = site.address;
+export const MAPS = "https://maps.google.com/?q=" + encodeURIComponent(site.address);
 
 export const NAV = [
   { href: "/hijama", label: "Hijama" },
