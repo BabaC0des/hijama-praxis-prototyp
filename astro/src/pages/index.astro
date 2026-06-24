@@ -18,7 +18,7 @@ import prices from "../data/prices.json";
         <i style="--x:60px;--drift:30px;--dur:11s;--delay:4.6s"></i>
         <i style="--x:-28px;--drift:-26px;--dur:9s;--delay:6s"></i>
       </div>
-      <img class="hero-cup" src="/cup.webp" width="850" height="1043" alt="Schröpfglas — Hijama Praxis" decoding="async" fetchpriority="high" />
+      <img class="hero-cup" id="heroCup" src="/cup-seq/f00.webp" width="880" height="1080" alt="Schröpfglas — Hijama Praxis" decoding="async" fetchpriority="high" data-frames="30" />
     </div>
     <div class="wrap">
       <div class="hero-inner">
@@ -157,6 +157,30 @@ import prices from "../data/prices.json";
         wrap.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
         requestAnimationFrame(raf);
       })();
+    })();
+
+    // scroll-driven cup spin (pre-rendered Cycles frames, scrubbed on scroll)
+    (function () {
+      var img = document.getElementById("heroCup");
+      var hero = document.getElementById("start");
+      if (!img || !hero) return;
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var N = parseInt(img.getAttribute("data-frames"), 10) || 30;
+      var attr = img.getAttribute("src") || "/cup-seq/f00.webp";
+      var prefix = attr.slice(0, attr.lastIndexOf("f00.webp")); // inherits base path (GitHub Pages prefix)
+      var pad = function (i) { return ("0" + i).slice(-2); };
+      var frames = [];
+      for (var i = 0; i < N; i++) { var im = new Image(); im.src = prefix + "f" + pad(i) + ".webp"; frames.push(im); }
+      var cur = 0, ticking = false;
+      function update() {
+        ticking = false;
+        var r = hero.getBoundingClientRect();
+        var p = Math.min(1, Math.max(0, -r.top / (r.height || 1)));
+        var idx = Math.round(p * (N - 1));
+        if (idx !== cur) { cur = idx; img.src = frames[idx].src; }
+      }
+      addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      update();
     })();
   </script>
 </Base>
