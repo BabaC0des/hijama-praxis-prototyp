@@ -156,16 +156,11 @@ import prices from "../data/prices.json";
       for (var i = 0; i < N; i++) { var im = new Image(); im.src = prefix + "f" + pad(i) + ".webp"; frames.push(im); }
 
       var mtx = 0, mty = 0, mx = 0, my = 0;        // mouse parallax (target / eased)
-      var descend = 0, drift = 0, curFrame = 0;    // scroll-driven
+      var targetP = 0, curP = 0, curFrame = -1;    // scroll progress: target (real scroll) vs eased (lagged cup)
 
-      function onScroll() {
+      function readScroll() {
         var r = hero.getBoundingClientRect();
-        var p = Math.min(1, Math.max(0, -r.top / (r.height || 1))); // 0 at top, 1 once the hero is scrolled past
-        descend = p * innerHeight * 0.18;            // subtle downward drift
-        drift = 0;                                   // no sideways swing — the vertical-axis spin is the rotation
-        wrap.style.opacity = p < 0.45 ? 1 : Math.max(0, 1 - (p - 0.45) / 0.4); // fade out as you pass the hero
-        var idx = Math.round(p * (N - 1));
-        if (idx !== curFrame) { curFrame = idx; img.src = frames[idx].src; }
+        targetP = Math.min(1, Math.max(0, -r.top / (r.height || 1))); // 0 at top, 1 once the hero is scrolled past
       }
 
       if (doMouse) {
@@ -175,16 +170,23 @@ import prices from "../data/prices.json";
         });
       }
       if (spiral) {
-        var ticking = false;
-        addEventListener("scroll", function () {
-          if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; onScroll(); }); }
-        }, { passive: true });
-        onScroll();
+        addEventListener("scroll", readScroll, { passive: true });
+        readScroll();
+        curP = targetP; // start matched (no jump if loaded mid-page)
       }
       if (doMouse || spiral) {
         (function raf() {
           mx += (mtx - mx) * 0.06; my += (mty - my) * 0.06;
-          wrap.style.transform = "translate(" + (mx + drift).toFixed(1) + "px," + (my + descend).toFixed(1) + "px)";
+          if (spiral) {
+            curP += (targetP - curP) * 0.08;           // ease toward real scroll -> cup trails a bit behind you
+            var descend = curP * innerHeight * 0.18;
+            wrap.style.opacity = curP < 0.45 ? 1 : Math.max(0, 1 - (curP - 0.45) / 0.4);
+            var idx = Math.round(curP * (N - 1));
+            if (idx !== curFrame) { curFrame = idx; img.src = frames[idx].src; }
+            wrap.style.transform = "translate(" + mx.toFixed(1) + "px," + (my + descend).toFixed(1) + "px)";
+          } else {
+            wrap.style.transform = "translate(" + mx.toFixed(1) + "px," + my.toFixed(1) + "px)";
+          }
           requestAnimationFrame(raf);
         })();
       }
