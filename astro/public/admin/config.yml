@@ -28,6 +28,39 @@ collections:
           - { name: phone, label: "Telefon", widget: string }
           - { name: email, label: "E-Mail", widget: string }
           - { name: address, label: "Adresse", widget: string }
+      - name: startseite-sektionen
+        label: "Startseite — Abschnitte"
+        file: "astro/src/data/home.json"
+        fields:
+          - { name: heroEyebrow, label: "Hero — Zeile oben", widget: string }
+          - name: trust
+            label: "Vertrauens-Kacheln"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: num, label: "Zahl / Label", widget: string }
+              - { name: title, label: "Titel", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - { name: behandlungenEyebrow, label: "Behandlungen — Zeile oben", widget: string }
+          - { name: behandlungenTitle, label: "Behandlungen — Titel", widget: string }
+          - { name: behandlungenText, label: "Behandlungen — Text", widget: text }
+          - { name: wirkungEyebrow, label: "Wirkung — Zeile oben", widget: string }
+          - { name: wirkungTitle, label: "Wirkung — Titel", widget: string }
+          - { name: wirkungText, label: "Wirkung — Text", widget: text }
+          - { name: wirkungChips, label: "Wirkung — Beschwerden", widget: list }
+          - { name: referenzenTitle, label: "Referenzen — Titel", widget: string }
+          - name: reviews
+            label: "Bewertungen"
+            widget: list
+            summary: "{{fields.who}}"
+            fields:
+              - { name: text, label: "Text", widget: text }
+              - { name: who, label: "Name", widget: string }
+          - { name: preiseEyebrow, label: "Preise — Zeile oben", widget: string }
+          - { name: preiseTitle, label: "Preise — Titel", widget: string }
+          - { name: preiseText, label: "Preise — Text", widget: text }
+          - { name: kontaktTitle, label: "Kontakt-CTA — Titel", widget: string }
+          - { name: kontaktText, label: "Kontakt-CTA — Text", widget: text }
       - name: preise
         label: "Preise"
         file: "astro/src/data/prices.json"

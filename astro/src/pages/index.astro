@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import { BOOKING, WHATSAPP, PHONE, PHONE_HREF, SITE } from "../consts";
+import home from "../data/home.json";
+import prices from "../data/prices.json";
 ---
 <Base
   title="Hijama Praxis Zürich — Hijama, Akupressur & Prophetenmedizin"
@@ -13,7 +15,7 @@ import { BOOKING, WHATSAPP, PHONE, PHONE_HREF, SITE } from "../consts";
     </div>
     <div class="wrap">
       <div class="hero-inner">
-        <p class="eyebrow reveal">Therapeut für Hijama, Akupressur &amp; Prophetenmedizin</p>
+        <p class="eyebrow reveal">{home.heroEyebrow}</p>
         <h1 class="reveal d1">Heilung, die<br />unter die <em>Haut</em> geht.</h1>
         <p class="lede reveal d2">{SITE.heroSub}</p>
         <div class="hero-cta reveal d3">
@@ -32,17 +34,19 @@ import { BOOKING, WHATSAPP, PHONE, PHONE_HREF, SITE } from "../consts";
 
   <main>
     <div class="strip">
-      <div class="cell reveal"><div class="num">~40</div><h3>Anerkannt bei Krankenkassen</h3><p>EMR-zertifiziert und von rund 40 Zusatzversicherungen anerkannt.</p></div>
-      <div class="cell reveal d1"><div class="num">Dipl.</div><h3>Geprüft &amp; zertifiziert</h3><p>Ausgebildet und diplomiert an staatlich anerkannten Akademien.</p></div>
-      <div class="cell reveal d2"><div class="num">2006</div><h3>Erfahrung &amp; Leidenschaft</h3><p>Seit 2006 mit Hingabe für Gesundheit und Wohlbefinden im Einsatz.</p></div>
+      {home.trust.map((t, i) => (
+        <div class={"cell reveal" + (i ? " d" + i : "")}>
+          <div class="num">{t.num}</div><h3>{t.title}</h3><p>{t.text}</p>
+        </div>
+      ))}
     </div>
 
     <section class="block" id="behandlungen">
       <div class="wrap">
         <div class="sec-head">
-          <p class="eyebrow reveal">Behandlungsmethoden</p>
-          <h2 class="reveal d1">Ein Werkzeug für jedes Anliegen.</h2>
-          <p class="reveal d2">Von der klassischen Hijama bis zur tiefen Faszienarbeit — individuell auf dich abgestimmt.</p>
+          <p class="eyebrow reveal">{home.behandlungenEyebrow}</p>
+          <h2 class="reveal d1">{home.behandlungenTitle}</h2>
+          <p class="reveal d2">{home.behandlungenText}</p>
         </div>
         <div class="grid">
           <a class="tcard reveal" href="/hijama"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 6c6 8 12 14 12 21a12 12 0 1 1-24 0c0-7 6-13 12-21z"/></svg></div><span class="tag">Schröpfen</span><h3>Hijama</h3><p>Nass &amp; trocken — die klassische, reinigende Schröpftherapie.</p><div class="more">Mehr erfahren →</div></a>
@@ -60,17 +64,12 @@ import { BOOKING, WHATSAPP, PHONE, PHONE_HREF, SITE } from "../consts";
     <section class="block alt" id="wirkung">
       <div class="wrap" style="display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,6vw,80px);align-items:center">
         <div>
-          <p class="eyebrow reveal">Wirkung</p>
-          <h2 class="reveal d1" style="font-size:clamp(2rem,4.6vw,3.4rem);font-weight:300;margin-top:.6rem">Mehr Durchblutung.<br />Weniger Schmerz.</h2>
-          <p class="reveal d2" style="color:var(--ink-soft);font-size:1.05rem;margin-top:1rem">Schröpfen fördert die Hautdurchblutung, erhöht die Versorgung mit Sauerstoff &amp; Nährstoffen und hilft, die Blutgefässe zu weiten. Eingesetzt unter anderem bei:</p>
+          <p class="eyebrow reveal">{home.wirkungEyebrow}</p>
+          <h2 class="reveal d1" style="font-size:clamp(2rem,4.6vw,3.4rem);font-weight:300;margin-top:.6rem">{home.wirkungTitle}</h2>
+          <p class="reveal d2" style="color:var(--ink-soft);font-size:1.05rem;margin-top:1rem">{home.wirkungText}</p>
         </div>
         <div class="chiplist">
-          <span class="chip reveal">Rückenschmerzen</span><span class="chip reveal">Arthritis</span>
-          <span class="chip reveal d1">Kopfschmerzen</span><span class="chip reveal d1">Migräne</span>
-          <span class="chip reveal d1">Muskelschmerzen</span><span class="chip reveal d2">Ischias</span>
-          <span class="chip reveal d2">Asthma</span><span class="chip reveal d2">Chron. Husten</span>
-          <span class="chip reveal d3">Bronchien</span><span class="chip reveal d3">Verdauung</span>
-          <span class="chip reveal d3">Stress</span>
+          {home.wirkungChips.map((c, i) => <span class={"chip reveal" + (i % 4 ? " d" + (i % 4) : "")}>{c}</span>)}
         </div>
       </div>
     </section>
@@ -90,26 +89,32 @@ import { BOOKING, WHATSAPP, PHONE, PHONE_HREF, SITE } from "../consts";
     <section class="block alt" id="referenzen">
       <div class="wrap">
         <div class="rev-head">
-          <div class="sec-head" style="margin:0"><p class="eyebrow reveal">Referenzen</p><h2 class="reveal d1">Über 1000 zufriedene Menschen.</h2></div>
+          <div class="sec-head" style="margin:0"><p class="eyebrow reveal">Referenzen</p><h2 class="reveal d1">{home.referenzenTitle}</h2></div>
           <div class="rev-badge reveal d2"><b>5.0</b><div><div class="stars">★★★★★</div>Google Bewertungen</div></div>
         </div>
         <div class="revs">
-          <div class="rev reveal"><div class="stars">★★★★★</div><p>Sehr empfehlenswert und ganz klar 5 Sterne! Super freundlicher Kontakt, tolle Therapie.</p><div class="who">Patrick Gut<span>Google Rezension</span></div></div>
-          <div class="rev reveal d1"><div class="stars">★★★★★</div><p>Ein Jahr lang Rückenschmerzen — nach einer Behandlung fast keine Schmerzen mehr.</p><div class="who">Yusuf Sakar<span>Google Rezension</span></div></div>
-          <div class="rev reveal d2"><div class="stars">★★★★★</div><p>Sehr professionell und achtet sehr auf die Hygiene. Nach der ersten Behandlung fühle ich mich bereits besser.</p><div class="who">Marcel Jovanovic<span>Google Rezension</span></div></div>
+          {home.reviews.map((r, i) => (
+            <div class={"rev reveal" + (i ? " d" + i : "")}>
+              <div class="stars">★★★★★</div><p>{r.text}</p><div class="who">{r.who}<span>Google Rezension</span></div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
     <section class="block" id="preise">
       <div class="wrap">
-        <div class="sec-head"><p class="eyebrow reveal">Preise</p><h2 class="reveal d1">Transparent &amp; fair.</h2><p class="reveal d2">Akupressur über viele Zusatzversicherungen abrechenbar. Übrige Behandlungen zu Privattarifen.</p></div>
+        <div class="sec-head"><p class="eyebrow reveal">{home.preiseEyebrow}</p><h2 class="reveal d1">{home.preiseTitle}</h2><p class="reveal d2">{home.preiseText}</p></div>
         <div class="price-wrap reveal d1">
           <div class="prow head"><div class="pname">Behandlung</div><div>60 Min.</div><div>75 Min.</div><div>90 Min.</div></div>
-          <div class="prow"><div class="pname">Hijama / Schröpfen<span>nass &amp; trocken</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
-          <div class="prow"><div class="pname">Akupressur<span>via Zusatzversicherung möglich</span></div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
-          <div class="prow"><div class="pname">Massage &amp; Gua Sha / Graston</div><div class="cost" data-d="60 Min.">120<small> CHF</small></div><div class="cost" data-d="75 Min.">150<small> CHF</small></div><div class="cost" data-d="90 Min.">180<small> CHF</small></div></div>
-          <div class="prow"><div class="pname">Deep Tissue Massage</div><div class="cost" data-d="60 Min.">200<small> CHF</small></div><div class="cost" data-d="75 Min.">250<small> CHF</small></div><div class="cost" data-d="90 Min.">280<small> CHF</small></div></div>
+          {prices.rows.map((r) => (
+            <div class="prow">
+              <div class="pname">{r.name}{r.sub && <span>{r.sub}</span>}</div>
+              <div class="cost" data-d="60 Min.">{r.p60}<small> CHF</small></div>
+              <div class="cost" data-d="75 Min.">{r.p75}<small> CHF</small></div>
+              <div class="cost" data-d="90 Min.">{r.p90}<small> CHF</small></div>
+            </div>
+          ))}
         </div>
         <div class="price-note reveal d2"><span>Auswärts- &amp; Hausbehandlungen sowie Notfälle auf Anfrage</span><span>Preis je nach Distanz, Zeit &amp; Personenzahl</span></div>
       </div>
@@ -118,8 +123,8 @@ import { BOOKING, WHATSAPP, PHONE, PHONE_HREF, SITE } from "../consts";
     <section class="block" id="kontakt">
       <div class="wrap">
         <div class="cta-band reveal">
-          <h2>Bereit für deinen Termin?</h2>
-          <p>Schreib oder ruf einfach an — wir finden gemeinsam einen Termin, der passt. Auch Hausbesuche &amp; Notfälle nach Absprache.</p>
+          <h2>{home.kontaktTitle}</h2>
+          <p>{home.kontaktText}</p>
           <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
             <a href={WHATSAPP} target="_blank" rel="noopener" class="btn btn-primary btn-lg magnetic" style="background:#fff;color:var(--magenta)">Per WhatsApp schreiben</a>
             <a href={PHONE_HREF} class="btn btn-ghost btn-lg magnetic" style="color:#fff;border-color:rgba(255,255,255,.5)">{PHONE}</a>

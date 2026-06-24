@@ -1,0 +1,26 @@
+{
+  "heroEyebrow": "Therapeut für Hijama, Akupressur & Prophetenmedizin",
+  "trust": [
+    { "num": "~40", "title": "Anerkannt bei Krankenkassen", "text": "EMR-zertifiziert und von rund 40 Zusatzversicherungen anerkannt." },
+    { "num": "Dipl.", "title": "Geprüft & zertifiziert", "text": "Ausgebildet und diplomiert an staatlich anerkannten Akademien." },
+    { "num": "2006", "title": "Erfahrung & Leidenschaft", "text": "Seit 2006 mit Hingabe für Gesundheit und Wohlbefinden im Einsatz." }
+  ],
+  "behandlungenEyebrow": "Behandlungsmethoden",
+  "behandlungenTitle": "Ein Werkzeug für jedes Anliegen.",
+  "behandlungenText": "Von der klassischen Hijama bis zur tiefen Faszienarbeit — individuell auf dich abgestimmt.",
+  "wirkungEyebrow": "Wirkung",
+  "wirkungTitle": "Mehr Durchblutung. Weniger Schmerz.",
+  "wirkungText": "Schröpfen fördert die Hautdurchblutung, erhöht die Versorgung mit Sauerstoff & Nährstoffen und hilft, die Blutgefässe zu weiten. Eingesetzt unter anderem bei:",
+  "wirkungChips": ["Rückenschmerzen", "Arthritis", "Kopfschmerzen", "Migräne", "Muskelschmerzen", "Ischias", "Asthma", "Chron. Husten", "Bronchien", "Verdauung", "Stress"],
+  "referenzenTitle": "Über 1000 zufriedene Menschen.",
+  "reviews": [
+    { "text": "Sehr empfehlenswert und ganz klar 5 Sterne! Super freundlicher Kontakt, tolle Therapie.", "who": "Patrick Gut" },
+    { "text": "Ein Jahr lang Rückenschmerzen — nach einer Behandlung fast keine Schmerzen mehr.", "who": "Yusuf Sakar" },
+    { "text": "Sehr professionell und achtet sehr auf die Hygiene. Nach der ersten Behandlung fühle ich mich bereits besser.", "who": "Marcel Jovanovic" }
+  ],
+  "preiseEyebrow": "Preise",
+  "preiseTitle": "Transparent & fair.",
+  "preiseText": "Akupressur über viele Zusatzversicherungen abrechenbar. Übrige Behandlungen zu Privattarifen.",
+  "kontaktTitle": "Bereit für deinen Termin?",
+  "kontaktText": "Schreib oder ruf einfach an — wir finden gemeinsam einen Termin, der passt. Auch Hausbesuche & Notfälle nach Absprache."
+}
