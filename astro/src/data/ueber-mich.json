@@ -1,0 +1,17 @@
+{
+  "bannerTitle": "Nazmi Bunjaku",
+  "bannerSub": "Diplomierter Hijama- & Akupressur-Therapeut und Heilpraktiker — seit 2006 mit Leidenschaft im Einsatz.",
+  "introText": "Seit 2006 begleite ich Menschen auf ihrem Weg zu mehr Wohlbefinden. Was als persönliche Entdeckung der Hijama begann, ist heute meine Berufung — mit grösstem Wert auf Hygiene, Achtsamkeit und eine Behandlung, die wirklich auf den Menschen eingeht.",
+  "werdegangTitle": "Mein Werdegang",
+  "timeline": [
+    { "yr": "2006", "text": "Entdeckung der Hijama-Therapie und Beginn der persönlichen Auseinandersetzung." },
+    { "yr": "2006–2010", "text": "Erlernen der traditionellen Hijama- (Schröpf-) Techniken." },
+    { "yr": "seit 2010", "text": "Anwendung der Behandlungen bei Familie und Bekannten — mit durchweg positiven Ergebnissen." },
+    { "yr": "2017", "text": "Zertifizierung in Schröpftherapie." },
+    { "yr": "2020", "text": "Ausbildung in Akupressur an zwei Instituten (Paracelsus ZH und BioMedica BS)." }
+  ],
+  "methodenTitle": "Meine Behandlungsmethoden",
+  "methoden": ["Hijama", "Akupressur", "Massage", "Deep Tissue", "Gua Sha / Graston", "Moxa", "Naturmedizin"],
+  "ctaTitle": "Lern mich kennen",
+  "ctaText": "Über 1000 zufriedene Menschen vertrauen auf Professionalität, Hygiene und Wirkung."
+}

@@ -1,0 +1,24 @@
+{
+  "bannerTitle": "Massage & Deep Tissue",
+  "bannerSub": "Entspannen, beleben und heilen — von der klassischen Massage bis zur tiefen Faszienarbeit.",
+  "introEyebrow": "Was ist eine Körpermassage?",
+  "introQuote": "Massage ist eine Behandlung, die verschiedene Arten von Körperkontakt nutzt, um den Körper zu entspannen, zu beleben und zu heilen.",
+  "wasTitle": "Was ist Massagetherapie?",
+  "wasText": "Massage ist das Streichen, Kneten, Erwärmen, Rollen und Drücken von Haut und Muskeln. Es gibt viele Massagearten mit unterschiedlichen Ursprüngen und Zielen — manche lindern Muskelschmerzen, andere steigern die Energie, verbessern bestimmte Beschwerden oder fördern die Entspannung.",
+  "wirkungEyebrow": "Wirkung",
+  "wirkungTitle": "Massage wirkt auf mehreren Ebenen.",
+  "benefits": [
+    { "title": "Entspannt & erfrischt", "text": "Löst müde oder verspannte Muskeln." },
+    { "title": "Mehr Durchblutung", "text": "Steigert die Blutzirkulation im Gewebe." },
+    { "title": "Unterstützt die Heilung", "text": "Hilft dem Körper, effizienter zu funktionieren." },
+    { "title": "Tiefe Zirkulation", "text": "Regt Blut- und Lymphfluss an." },
+    { "title": "Endorphine", "text": "Fördert die Ausschüttung von Glückshormonen." },
+    { "title": "Mehr Wohlbefinden", "text": "Hilft bei Stress, chronischen Schmerzen, Rückenschmerzen und Arthritis." }
+  ],
+  "vorteileTitle": "Gesundheitliche Vorteile",
+  "vorteileText": "Therapeutische Massage hilft bei stressbedingten Beschwerden, chronischen Schmerzen, Rückenschmerzen und Arthritis. Sie stärkt die Immunabwehr, unterstützt die Genesung nach Schlaganfall und bei Krebspatienten, begleitet Demenzkranke, hilft Giftstoffe abzubauen und verbessert die Beweglichkeit von Sportlern.",
+  "vorsichtTitle": "Vorsichtsmassnahmen",
+  "vorsichtText": "Vor der Behandlung keine grossen Mahlzeiten und keinen Alkohol. Bitte informiere mich über Schwangerschaft, Erkrankungen, Verletzungen, Allergien, Wunden, Fieber oder Infektionen.",
+  "ctaTitle": "Massage-Termin vereinbaren",
+  "ctaText": "Klassische Massage, Deep Tissue oder Gua Sha — wir finden das Passende für dich."
+}

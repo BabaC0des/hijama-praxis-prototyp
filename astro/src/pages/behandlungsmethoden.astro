@@ -1,6 +1,19 @@
 ---
 import Base from "../layouts/Base.astro";
 import { BOOKING } from "../consts";
+import data from "../data/behandlungsmethoden.json";
+
+// Icons + links per card stay structural; the texts come from the CMS data.
+const meta = [
+  { href: "/hijama", icon: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 6c6 8 12 14 12 21a12 12 0 1 1-24 0c0-7 6-13 12-21z"/></svg>' },
+  { href: "/akupressur", icon: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="24" cy="24" r="5"/><circle cx="24" cy="24" r="13"/></svg>' },
+  { href: "/massage", icon: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 28c5-8 9-8 14 0s9 8 14 0 4-8 8 0"/><path d="M6 18c5-8 9-8 14 0"/></svg>' },
+  { href: "/massage", icon: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 8 8 17l16 9 16-9z"/><path d="M8 25l16 9 16-9M8 33l16 9 16-9"/></svg>' },
+  { href: null, icon: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="10" y="10" width="20" height="10" rx="3" transform="rotate(20 20 15)"/><path d="M26 24 38 38"/></svg>' },
+  { href: null, icon: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 6c2 8 10 10 10 20a10 10 0 1 1-20 0c0-5 3-7 4-11 2 3 4 3 6 2 1-3-1-7 0-11z"/></svg>' },
+  { href: null, icon: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M38 10C20 10 10 20 10 38c18 0 28-10 28-28z"/><path d="M16 32 34 14"/></svg>' },
+];
+const delay = (i) => (i % 3 === 1 ? " d1" : i % 3 === 2 ? " d2" : "");
 ---
 <Base
   title="Behandlungsmethoden — Hijama Praxis Zürich"
@@ -9,8 +22,8 @@ import { BOOKING } from "../consts";
   <section class="banner">
     <div class="wrap">
       <div class="crumb reveal"><a href="/">Start</a> · Behandlungsmethoden</div>
-      <h1 class="reveal d1">Behandlungsmethoden</h1>
-      <p class="reveal d2">Ein Überblick über alle Therapien der Praxis — von der Hijama bis zur Naturmedizin.</p>
+      <h1 class="reveal d1">{data.bannerTitle}</h1>
+      <p class="reveal d2">{data.bannerSub}</p>
     </div>
   </section>
 
@@ -18,14 +31,19 @@ import { BOOKING } from "../consts";
     <section class="block">
       <div class="wrap">
         <div class="grid">
-          <a class="tcard reveal" href="/hijama"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 6c6 8 12 14 12 21a12 12 0 1 1-24 0c0-7 6-13 12-21z"/></svg></div><span class="tag">Schröpfen</span><h3>Hijama</h3><p>Nass &amp; trocken — die klassische, reinigende Schröpftherapie zur Ausleitung und Durchblutungsförderung.</p><div class="more">Mehr erfahren →</div></a>
-          <a class="tcard reveal d1" href="/akupressur"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="24" cy="24" r="5"/><circle cx="24" cy="24" r="13"/></svg></div><span class="tag">Druckpunkte</span><h3>Akupressur</h3><p>Stumpfer Druck an definierten Punkten — prophylaktisch und lösend bei vielen Beschwerden.</p><div class="more">Mehr erfahren →</div></a>
-          <a class="tcard reveal d2" href="/massage"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 28c5-8 9-8 14 0s9 8 14 0 4-8 8 0"/><path d="M6 18c5-8 9-8 14 0"/></svg></div><span class="tag">Entspannung</span><h3>Massage</h3><p>Streichen, Kneten und Drücken — entspannt, belebt und fördert die Durchblutung.</p><div class="more">Mehr erfahren →</div></a>
-          <a class="tcard reveal" href="/massage"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 8 8 17l16 9 16-9z"/><path d="M8 25l16 9 16-9M8 33l16 9 16-9"/></svg></div><span class="tag">Tiefengewebe</span><h3>Deep Tissue Massage</h3><p>Intensive Arbeit an tiefer liegenden Muskel- und Faszienschichten bei hartnäckigen Verspannungen.</p><div class="more">Mehr erfahren →</div></a>
-          <div class="tcard reveal d1"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="10" y="10" width="20" height="10" rx="3" transform="rotate(20 20 15)"/><path d="M26 24 38 38"/></svg></div><span class="tag">Faszien</span><h3>Gua Sha / Graston</h3><p>Schabende Technik mit speziellen Werkzeugen, die Faszien löst, Verklebungen bearbeitet und die Durchblutung anregt.</p></div>
-          <div class="tcard reveal d2"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M24 6c2 8 10 10 10 20a10 10 0 1 1-20 0c0-5 3-7 4-11 2 3 4 3 6 2 1-3-1-7 0-11z"/></svg></div><span class="tag">Wärme</span><h3>Moxa</h3><p>Erwärmung bestimmter Punkte mit Moxakraut — wohltuende Wärme, die Energie und Durchblutung fördert.</p></div>
-          <div class="tcard reveal"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M38 10C20 10 10 20 10 38c18 0 28-10 28-28z"/><path d="M16 32 34 14"/></svg></div><span class="tag">Prophetenmedizin</span><h3>Naturmedizin</h3><p>Ganzheitliche, naturheilkundliche Begleitung im Sinne der traditionellen Prophetenmedizin.</p></div>
-          <a class="tcard reveal d1" href={BOOKING} target="_blank" rel="noopener" style="display:flex;flex-direction:column;justify-content:center;background:var(--grad-sunset);color:#fff;border:none"><h3 style="color:#fff">Termin online buchen</h3><p style="color:rgba(255,255,255,.9)">Wähle deine Behandlung direkt im Buchungstool.</p><div class="more" style="color:#fff">Zur Buchung →</div></a>
+          {data.cards.map((c, i) => {
+            const m = meta[i];
+            return m.href ? (
+              <a class={"tcard reveal" + delay(i)} href={m.href}>
+                <div class="ico" set:html={m.icon} /><span class="tag">{c.tag}</span><h3>{c.title}</h3><p>{c.text}</p><div class="more">Mehr erfahren →</div>
+              </a>
+            ) : (
+              <div class={"tcard reveal" + delay(i)}>
+                <div class="ico" set:html={m.icon} /><span class="tag">{c.tag}</span><h3>{c.title}</h3><p>{c.text}</p>
+              </div>
+            );
+          })}
+          <a class="tcard reveal d1" href={BOOKING} target="_blank" rel="noopener" style="display:flex;flex-direction:column;justify-content:center;background:var(--grad-sunset);color:#fff;border:none"><h3 style="color:#fff">{data.ctaTitle}</h3><p style="color:rgba(255,255,255,.9)">{data.ctaText}</p><div class="more" style="color:#fff">Zur Buchung →</div></a>
         </div>
       </div>
     </section>

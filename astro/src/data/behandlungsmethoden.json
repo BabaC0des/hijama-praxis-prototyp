@@ -1,0 +1,15 @@
+{
+  "bannerTitle": "Behandlungsmethoden",
+  "bannerSub": "Ein Überblick über alle Therapien der Praxis — von der Hijama bis zur Naturmedizin.",
+  "cards": [
+    { "tag": "Schröpfen", "title": "Hijama", "text": "Nass & trocken — die klassische, reinigende Schröpftherapie zur Ausleitung und Durchblutungsförderung." },
+    { "tag": "Druckpunkte", "title": "Akupressur", "text": "Stumpfer Druck an definierten Punkten — prophylaktisch und lösend bei vielen Beschwerden." },
+    { "tag": "Entspannung", "title": "Massage", "text": "Streichen, Kneten und Drücken — entspannt, belebt und fördert die Durchblutung." },
+    { "tag": "Tiefengewebe", "title": "Deep Tissue Massage", "text": "Intensive Arbeit an tiefer liegenden Muskel- und Faszienschichten bei hartnäckigen Verspannungen." },
+    { "tag": "Faszien", "title": "Gua Sha / Graston", "text": "Schabende Technik mit speziellen Werkzeugen, die Faszien löst, Verklebungen bearbeitet und die Durchblutung anregt." },
+    { "tag": "Wärme", "title": "Moxa", "text": "Erwärmung bestimmter Punkte mit Moxakraut — wohltuende Wärme, die Energie und Durchblutung fördert." },
+    { "tag": "Prophetenmedizin", "title": "Naturmedizin", "text": "Ganzheitliche, naturheilkundliche Begleitung im Sinne der traditionellen Prophetenmedizin." }
+  ],
+  "ctaTitle": "Termin online buchen",
+  "ctaText": "Wähle deine Behandlung direkt im Buchungstool."
+}

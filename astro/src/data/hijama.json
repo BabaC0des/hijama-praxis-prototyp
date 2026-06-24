@@ -1,0 +1,38 @@
+{
+  "bannerTitle": "Hijama",
+  "bannerSub": "Schröpfen — die klassische, reinigende Therapie. Nass & trocken, achtsam und hygienisch durchgeführt.",
+  "introEyebrow": "Was ist Hijama?",
+  "introQuote": "Hijama ist eine generell sehr unterschätzte Therapieform mit enormer, positiver Wirkung.",
+  "introPara1": "Beim Schröpfen werden kleine Glas- oder Kunststoffgefässe mittels Unterdruck auf die Haut aufgesetzt — meist erzeugt durch eine Pumpe. Das steigert die Durchblutung des Gewebes, regt den Stoffwechsel an und wirkt aktivierend. Nach 10–15 Minuten werden die Gefässe entfernt; die zurückbleibenden Blutergüsse (Hämatome) klingen innerhalb von Stunden bis Tagen wieder ab.",
+  "introPara2": "Eingesetzt wird Hijama unter anderem bei Kopfschmerzen, Migräne, Muskelschmerzen und Ischias-Beschwerden.",
+  "introHadith": "Hijama ist für euch einer der besten Behandlungen. — überliefert bei Bukhari",
+  "vorteileEyebrow": "Vorteile",
+  "vorteileTitle": "Was Hijama bewirken kann.",
+  "benefits": [
+    { "title": "Schnellere Schmerzlinderung", "text": "Bei Arthritis, Rückenschmerzen, Kopfschmerzen, Migräne, Muskel- und Ischias-Schmerzen — durch mehr Durchblutung und Beweglichkeit." },
+    { "title": "Chronisches Müdigkeitssyndrom", "text": "Wirksam bei anhaltender Erschöpfung durch modernen Stress und digitale Reizüberflutung." },
+    { "title": "Lungenerkrankungen", "text": "Bei chronischem Husten, Asthma, verschleimten Bronchien und Rippenfellentzündung." },
+    { "title": "Hautgesundheit (Schröpfmassage)", "text": "Verbessert Durchblutung sowie Sauerstoff- und Nährstoffversorgung; kann Akne, Ekzeme und Cellulite mindern." },
+    { "title": "Verdauungsprobleme", "text": "Bei Beschwerden durch chronischen Stress, Fehlernährung und Immunreaktionen." },
+    { "title": "Harnwegserkrankungen", "text": "Unterstützend bei Nierensteinen, Harnverhalt und Abszessen." },
+    { "title": "Entspannung", "text": "Massage-ähnlicher Effekt, der durch verbesserte Energie und Durchblutung tief entspannt." },
+    { "title": "Schnellere Heilung", "text": "Gezieltes Ansetzen erhöht die Durchblutung in den zu heilenden Bereichen." }
+  ],
+  "artenEyebrow": "Arten von Hijama",
+  "artenTitle": "Nass oder trocken.",
+  "arten": [
+    { "tag": "Nasses Hijama", "title": "Mit Ausleitung", "text": "Die Haut wird vor der Behandlung mit einer feinen Nadel punktiert oder leicht angeritzt (max. 0,5 mm tief). Der Unterdruck saugt anschliessend Blut aus den Mikroverletzungen. Besonders wirksam bei akuten und chronischen Schmerzen." },
+    { "tag": "Trockenes Hijama", "title": "Ohne Anritzen", "text": "Die Gefässe werden direkt auf die Haut aufgesetzt. Der Unterdruck steigert Durchblutung und Stoffwechsel und wirkt aktivierend. Nach 10–15 Minuten entsteht der therapeutische Bluterguss." }
+  ],
+  "faqEyebrow": "Häufige Fragen",
+  "faqTitle": "Gut zu wissen.",
+  "faq": [
+    { "q": "Für wen eignet sich Hijama nicht?", "a": "Nicht geeignet bei: Tuberkulose, Tumoren, Sonnenbrand, Verbrennungen, frischen Verletzungen, Blutgerinnungsstörungen, Anämie, Menstruation, Dehydrierung, Ohnmachtsneigung, Herzrhythmusstörungen und Koronarinsuffizienz." },
+    { "q": "Was passiert beim nassen Hijama genau?", "a": "„Durch die Blutung wird altes, schlechtes, toxisches, belastetes Blut ausgeleitet und der Körper entlastet.\" Dunkles oder bläuliches Blut deutet auf Blockaden und Stagnation hin. Die Behandlung löst Spannungen, beseitigt tote Zellen und Schlacken und regt die Blutneubildung an." },
+    { "q": "Welche Wirkung hat blutiges/nasses Hijama?", "a": "Es lindert und stimuliert die Heilung durch gesteigerte Haut- und Gewebedurchblutung, angeregten Stoffwechsel und aktivierte Meridiane. Es stärkt Organe und Selbstheilungskräfte und verbessert nach TCM-Lehre die Zirkulation von Qi, Blut und Lymphe." }
+  ],
+  "eindrueckeEyebrow": "Eindrücke",
+  "eindrueckeTitle": "Aus der Praxis.",
+  "ctaTitle": "Hijama-Termin vereinbaren",
+  "ctaText": "Schreib oder ruf einfach an — gerne berate ich dich vorab unverbindlich."
+}

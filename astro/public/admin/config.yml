@@ -76,3 +76,134 @@ collections:
               - { name: p60, label: "60 Min (CHF)", widget: string }
               - { name: p75, label: "75 Min (CHF)", widget: string }
               - { name: p90, label: "90 Min (CHF)", widget: string }
+      - name: hijama
+        label: "Seite: Hijama"
+        file: "astro/src/data/hijama.json"
+        fields:
+          - { name: bannerTitle, label: "Banner — Titel", widget: string }
+          - { name: bannerSub, label: "Banner — Untertitel", widget: text }
+          - { name: introEyebrow, label: "Intro — Zeile oben", widget: string }
+          - { name: introQuote, label: "Intro — Zitat", widget: text }
+          - { name: introPara1, label: "Intro — Absatz 1", widget: text }
+          - { name: introPara2, label: "Intro — Absatz 2", widget: text }
+          - { name: introHadith, label: "Intro — Hadith", widget: text }
+          - { name: vorteileEyebrow, label: "Vorteile — Zeile oben", widget: string }
+          - { name: vorteileTitle, label: "Vorteile — Titel", widget: string }
+          - name: benefits
+            label: "Vorteile"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Titel", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - { name: artenEyebrow, label: "Arten — Zeile oben", widget: string }
+          - { name: artenTitle, label: "Arten — Titel", widget: string }
+          - name: arten
+            label: "Arten"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: tag, label: "Tag", widget: string }
+              - { name: title, label: "Titel", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - { name: faqEyebrow, label: "FAQ — Zeile oben", widget: string }
+          - { name: faqTitle, label: "FAQ — Titel", widget: string }
+          - name: faq
+            label: "Häufige Fragen"
+            widget: list
+            summary: "{{fields.q}}"
+            fields:
+              - { name: q, label: "Frage", widget: string }
+              - { name: a, label: "Antwort", widget: text }
+          - { name: eindrueckeEyebrow, label: "Eindrücke — Zeile oben", widget: string }
+          - { name: eindrueckeTitle, label: "Eindrücke — Titel", widget: string }
+          - { name: ctaTitle, label: "CTA — Titel", widget: string }
+          - { name: ctaText, label: "CTA — Text", widget: text }
+      - name: akupressur
+        label: "Seite: Akupressur"
+        file: "astro/src/data/akupressur.json"
+        fields:
+          - { name: bannerTitle, label: "Banner — Titel", widget: string }
+          - { name: bannerSub, label: "Banner — Untertitel", widget: text }
+          - { name: introEyebrow, label: "Intro — Zeile oben", widget: string }
+          - { name: introQuote, label: "Intro — Zitat", widget: text }
+          - { name: introPara, label: "Intro — Absatz", widget: text }
+          - { name: anwendungTitle, label: "Anwendung — Titel", widget: string }
+          - { name: anwendungText, label: "Anwendung — Text", widget: text }
+          - { name: hilftEyebrow, label: "Hilft bei — Zeile oben", widget: string }
+          - { name: hilftTitle, label: "Hilft bei — Titel", widget: string }
+          - { name: hilftChips, label: "Hilft bei — Beschwerden", widget: list }
+          - { name: behandlungTitle, label: "Behandlung — Titel", widget: string }
+          - { name: behandlungText, label: "Behandlung — Text", widget: text }
+          - { name: ctaTitle, label: "CTA — Titel", widget: string }
+          - { name: ctaText, label: "CTA — Text", widget: text }
+      - name: massage
+        label: "Seite: Massage"
+        file: "astro/src/data/massage.json"
+        fields:
+          - { name: bannerTitle, label: "Banner — Titel", widget: string }
+          - { name: bannerSub, label: "Banner — Untertitel", widget: text }
+          - { name: introEyebrow, label: "Intro — Zeile oben", widget: string }
+          - { name: introQuote, label: "Intro — Zitat", widget: text }
+          - { name: wasTitle, label: "Was ist...? — Titel", widget: string }
+          - { name: wasText, label: "Was ist...? — Text", widget: text }
+          - { name: wirkungEyebrow, label: "Wirkung — Zeile oben", widget: string }
+          - { name: wirkungTitle, label: "Wirkung — Titel", widget: string }
+          - name: benefits
+            label: "Wirkung — Punkte"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Titel", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - { name: vorteileTitle, label: "Vorteile — Titel", widget: string }
+          - { name: vorteileText, label: "Vorteile — Text", widget: text }
+          - { name: vorsichtTitle, label: "Vorsicht — Titel", widget: string }
+          - { name: vorsichtText, label: "Vorsicht — Text", widget: text }
+          - { name: ctaTitle, label: "CTA — Titel", widget: string }
+          - { name: ctaText, label: "CTA — Text", widget: text }
+      - name: ueber-mich
+        label: "Seite: Über mich"
+        file: "astro/src/data/ueber-mich.json"
+        fields:
+          - { name: bannerTitle, label: "Banner — Titel", widget: string }
+          - { name: bannerSub, label: "Banner — Untertitel", widget: text }
+          - { name: introText, label: "Intro — Text", widget: text }
+          - { name: werdegangTitle, label: "Werdegang — Titel", widget: string }
+          - name: timeline
+            label: "Werdegang (Timeline)"
+            widget: list
+            summary: "{{fields.yr}}"
+            fields:
+              - { name: yr, label: "Jahr", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - { name: methodenTitle, label: "Methoden — Titel", widget: string }
+          - { name: methoden, label: "Methoden (Chips)", widget: list }
+          - { name: ctaTitle, label: "CTA — Titel", widget: string }
+          - { name: ctaText, label: "CTA — Text", widget: text }
+      - name: behandlungsmethoden
+        label: "Seite: Behandlungsmethoden"
+        file: "astro/src/data/behandlungsmethoden.json"
+        fields:
+          - { name: bannerTitle, label: "Banner — Titel", widget: string }
+          - { name: bannerSub, label: "Banner — Untertitel", widget: text }
+          - name: cards
+            label: "Methoden-Karten"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: tag, label: "Tag", widget: string }
+              - { name: title, label: "Titel", widget: string }
+              - { name: text, label: "Text", widget: text }
+          - { name: ctaTitle, label: "CTA-Karte — Titel", widget: string }
+          - { name: ctaText, label: "CTA-Karte — Text", widget: text }
+      - name: kontakt
+        label: "Seite: Kontakt"
+        file: "astro/src/data/kontakt.json"
+        fields:
+          - { name: bannerTitle, label: "Banner — Titel", widget: string }
+          - { name: bannerSub, label: "Banner — Untertitel", widget: text }
+          - { name: infoEyebrow, label: "Zeile oben", widget: string }
+          - { name: termineValue, label: "Termine — Text", widget: text }
+          - { name: ctaTitle, label: "CTA — Titel", widget: string }
+          - { name: ctaText, label: "CTA — Text", widget: text }
