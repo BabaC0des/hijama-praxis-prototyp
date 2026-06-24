@@ -137,45 +137,60 @@ import prices from "../data/prices.json";
   </main>
 
   <script is:inline>
+    // Hero cup: mouse parallax + scroll-driven spiral — it descends, drifts & rotates as you scroll, then it's gone past the hero. (Not pinned.)
     (function () {
       var wrap = document.getElementById("heroCupWrap");
-      if (!wrap) return;
-      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (!matchMedia("(pointer:fine)").matches) return;
-      var tx = 0, ty = 0, x = 0, y = 0;
-      addEventListener("pointermove", function (e) {
-        tx = ((e.clientX / innerWidth) * 2 - 1) * 16;
-        ty = ((e.clientY / innerHeight) * 2 - 1) * 11;
-      });
-      (function raf() {
-        x += (tx - x) * 0.06; y += (ty - y) * 0.06;
-        wrap.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
-        requestAnimationFrame(raf);
-      })();
-    })();
-
-    // scroll-driven cup spin (pre-rendered Cycles frames, scrubbed on scroll)
-    (function () {
       var img = document.getElementById("heroCup");
       var hero = document.getElementById("start");
-      if (!img || !hero) return;
-      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var N = parseInt(img.getAttribute("data-frames"), 10) || 30;
+      if (!wrap || !img || !hero) return;
+
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var fine = matchMedia("(pointer:fine)").matches;
+      var mobile = matchMedia("(max-width: 860px)").matches;
+      var spiral = !reduce && !mobile;   // scroll spiral on desktop only
+      var doMouse = fine && !reduce;
+
+      // preload rotation frames
+      var N = parseInt(img.getAttribute("data-frames"), 10) || 48;
       var attr = img.getAttribute("src") || "/cup-seq/f00.webp";
       var prefix = attr.slice(0, attr.lastIndexOf("f00.webp")); // inherits base path (GitHub Pages prefix)
       var pad = function (i) { return ("0" + i).slice(-2); };
       var frames = [];
       for (var i = 0; i < N; i++) { var im = new Image(); im.src = prefix + "f" + pad(i) + ".webp"; frames.push(im); }
-      var cur = 0, ticking = false;
-      function update() {
-        ticking = false;
+
+      var mtx = 0, mty = 0, mx = 0, my = 0;        // mouse parallax (target / eased)
+      var descend = 0, drift = 0, curFrame = 0;    // scroll-driven
+
+      function onScroll() {
         var r = hero.getBoundingClientRect();
-        var p = Math.min(1, Math.max(0, -r.top / (r.height || 1)));
+        var p = Math.min(1, Math.max(0, -r.top / (r.height || 1))); // 0 at top, 1 once the hero is scrolled past
+        descend = p * innerHeight * 0.95;            // sink down & off the bottom -> gone past the hero
+        drift = Math.sin(p * Math.PI * 1.5) * 46;    // gentle sideways swing -> spiral
+        wrap.style.opacity = p < 0.5 ? 1 : Math.max(0, 1 - (p - 0.5) / 0.42); // fade out as it descends
         var idx = Math.round(p * (N - 1));
-        if (idx !== cur) { cur = idx; img.src = frames[idx].src; }
+        if (idx !== curFrame) { curFrame = idx; img.src = frames[idx].src; }
       }
-      addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-      update();
+
+      if (doMouse) {
+        addEventListener("pointermove", function (e) {
+          mtx = ((e.clientX / innerWidth) * 2 - 1) * 16;
+          mty = ((e.clientY / innerHeight) * 2 - 1) * 11;
+        });
+      }
+      if (spiral) {
+        var ticking = false;
+        addEventListener("scroll", function () {
+          if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; onScroll(); }); }
+        }, { passive: true });
+        onScroll();
+      }
+      if (doMouse || spiral) {
+        (function raf() {
+          mx += (mtx - mx) * 0.06; my += (mty - my) * 0.06;
+          wrap.style.transform = "translate(" + (mx + drift).toFixed(1) + "px," + (my + descend).toFixed(1) + "px)";
+          requestAnimationFrame(raf);
+        })();
+      }
     })();
   </script>
 </Base>

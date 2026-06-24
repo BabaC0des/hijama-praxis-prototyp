@@ -320,7 +320,7 @@ body{top:0!important}
 .mobile-menu .lang-switch .goog-te-combo{font-size:1.15rem;padding:.6rem 1.1rem}
 
 /* ---- homepage hero cup (migrated from index inline styles) ---- */
-.hero-cup-wrap{position:absolute;top:0;right:3%;bottom:0;width:48%;z-index:1;display:flex;align-items:center;justify-content:center;pointer-events:none;will-change:transform;transition:transform .4s ease-out}
+.hero-cup-wrap{position:fixed;top:0;right:3%;bottom:0;width:48%;z-index:1;display:flex;align-items:center;justify-content:center;pointer-events:none;will-change:transform}
 .hero-cup{height:86%;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 22px 28px rgba(120,40,30,.18));animation:cupfloat 6.5s ease-in-out infinite;will-change:transform}
 @keyframes cupfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 .hero .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(30% 42% at 76% 50%, rgba(216,162,74,.30), rgba(200,80,60,.16) 52%, transparent 72%)}
@@ -339,5 +339,5 @@ body{top:0!important}
   62%{opacity:.5}
   100%{opacity:0;transform:translate(calc(-50% + var(--drift,16px)),-330px) scale(1.8)}}
 
-@media(max-width:860px){.hero-cup-wrap{width:80%;right:auto;left:10%;top:5%;bottom:auto;height:46%;opacity:.5}.hero{align-items:flex-end}.hero .wrap{padding-bottom:7vh}.hero-steam{display:none}}
+@media(max-width:860px){.hero{align-items:flex-end}.hero-cup-wrap{position:absolute;width:80%;right:auto;left:10%;top:5%;bottom:auto;height:46%;opacity:.5}.hero .wrap{padding-bottom:7vh}.hero-steam{display:none}}
 @media (prefers-reduced-motion:reduce){.hero-cup{animation:none}.hero-steam{display:none}}
