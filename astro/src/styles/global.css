@@ -325,19 +325,5 @@ body{top:0!important}
 @keyframes cupfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 .hero .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(30% 42% at 76% 50%, rgba(216,162,74,.30), rgba(200,80,60,.16) 52%, transparent 72%)}
 
-/* warm vapor wisps rising behind the cup */
-.hero-steam{position:absolute;inset:0;pointer-events:none}
-.hero-steam i{position:absolute;left:50%;bottom:58%;display:block;
-  width:clamp(40px,5vw,72px);height:clamp(150px,23vw,290px);border-radius:50%;
-  background:radial-gradient(ellipse 48% 50% at 50% 58%,rgba(255,243,236,.78),rgba(205,88,104,.34) 40%,rgba(208,120,92,.14) 62%,transparent 76%);
-  filter:blur(11px);opacity:0;transform:translate(-50%,0) scale(.55);
-  animation:steam var(--dur,9s) ease-in infinite;animation-delay:var(--delay,0s);
-  will-change:transform,opacity}
-@keyframes steam{
-  0%{opacity:0;transform:translate(calc(-50% + var(--x,0px)),30px) scale(.5)}
-  20%{opacity:.9}
-  62%{opacity:.5}
-  100%{opacity:0;transform:translate(calc(-50% + var(--drift,16px)),-330px) scale(1.8)}}
-
-@media(max-width:860px){.hero{align-items:flex-end}.hero-cup-wrap{position:absolute;width:80%;right:auto;left:10%;top:5%;bottom:auto;height:46%;opacity:.5}.hero .wrap{padding-bottom:7vh}.hero-steam{display:none}}
-@media (prefers-reduced-motion:reduce){.hero-cup{animation:none}.hero-steam{display:none}}
+@media(max-width:860px){.hero{align-items:flex-end}.hero-cup-wrap{position:absolute;width:80%;right:auto;left:10%;top:5%;bottom:auto;height:46%;opacity:.5}.hero .wrap{padding-bottom:7vh}}
+@media (prefers-reduced-motion:reduce){.hero-cup{animation:none}}
