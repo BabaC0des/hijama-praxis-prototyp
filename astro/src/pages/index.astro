@@ -11,7 +11,7 @@ import prices from "../data/prices.json";
   <section class="hero" id="start">
     <div class="hero-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
     <div class="hero-cup-wrap" id="heroCupWrap">
-      <img class="hero-cup" id="heroCup" src="/cup-seq/f00.webp" width="880" height="1080" alt="Schröpfglas — Hijama Praxis" decoding="async" fetchpriority="high" data-frames="60" />
+      <img class="hero-cup" id="heroCup" src="/cup-seq/f00.webp" width="440" height="540" alt="Schröpfglas — Hijama Praxis" decoding="async" fetchpriority="high" data-frames="20" />
     </div>
     <div class="wrap">
       <div class="hero-inner">
@@ -205,7 +205,7 @@ import prices from "../data/prices.json";
           if (!inView && !doMouse) return;
           mx += (mtx - mx) * 0.06; my += (mty - my) * 0.06;
           if (spiral) {
-            curP += (targetP - curP) * 0.08;
+            curP += (targetP - curP) * 0.04;
             var descend = curP * innerHeight * 0.18;
             wrap.style.opacity = curP < 0.45 ? 1 : Math.max(0, 1 - (curP - 0.45) / 0.4);
             var idx = Math.round(curP * (N - 1));
