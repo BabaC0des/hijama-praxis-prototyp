@@ -130,7 +130,6 @@ import prices from "../data/prices.json";
   </main>
 
   <script is:inline>
-    // Hero cup: mouse parallax + scroll-driven spiral — it descends, drifts & rotates as you scroll, then it's gone past the hero. (Not pinned.)
     (function () {
       var wrap = document.getElementById("heroCupWrap");
       var img = document.getElementById("heroCup");
@@ -140,23 +139,53 @@ import prices from "../data/prices.json";
       var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
       var fine = matchMedia("(pointer:fine)").matches;
       var mobile = matchMedia("(max-width: 860px)").matches;
-      var spiral = !reduce && !mobile;   // scroll spiral on desktop only
+      var spiral = !reduce && !mobile;
       var doMouse = fine && !reduce;
 
-      // preload rotation frames
-      var N = parseInt(img.getAttribute("data-frames"), 10) || 48;
+      var N = parseInt(img.getAttribute("data-frames"), 10) || 60;
       var attr = img.getAttribute("src") || "/cup-seq/f00.webp";
-      var prefix = attr.slice(0, attr.lastIndexOf("f00.webp")); // inherits base path (GitHub Pages prefix)
+      var prefix = attr.slice(0, attr.lastIndexOf("f00.webp"));
       var pad = function (i) { return ("0" + i).slice(-2); };
-      var frames = [];
-      for (var i = 0; i < N; i++) { var im = new Image(); im.src = prefix + "f" + pad(i) + ".webp"; frames.push(im); }
 
-      var mtx = 0, mty = 0, mx = 0, my = 0;        // mouse parallax (target / eased)
-      var targetP = 0, curP = 0, curFrame = -1;    // scroll progress: target (real scroll) vs eased (lagged cup)
+      // Replace <img> with <canvas> — frame swaps become instant GPU blits (no per-frame WebP decode)
+      var CW = 440, CH = 540;
+      var canvas = document.createElement("canvas");
+      canvas.className = img.className;
+      canvas.width = CW; canvas.height = CH;
+      canvas.setAttribute("role", "img");
+      canvas.setAttribute("aria-label", img.alt || "");
+      wrap.replaceChild(canvas, img);
+      var ctx = canvas.getContext("2d", { alpha: true });
+      ctx.globalCompositeOperation = "copy";
+
+      // Pre-decode all frames as ImageBitmap (off main thread, GPU-resident)
+      var bitmaps = new Array(N);
+      for (var i = 0; i < N; i++) {
+        (function (idx) {
+          fetch(prefix + "f" + pad(idx) + ".webp")
+            .then(function (r) { return r.blob(); })
+            .then(function (b) { return createImageBitmap(b); })
+            .then(function (bm) {
+              bitmaps[idx] = bm;
+              if (idx === 0) ctx.drawImage(bm, 0, 0, CW, CH);
+            }).catch(function () {});
+        })(i);
+      }
+
+      var mtx = 0, mty = 0, mx = 0, my = 0;
+      var targetP = 0, curP = 0, curFrame = -1;
+      var inView = true;
+
+      // Pause rAF when hero is fully off-screen
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          inView = entries[0].isIntersecting;
+        }, { rootMargin: "120px" }).observe(hero);
+      }
 
       function readScroll() {
         var r = hero.getBoundingClientRect();
-        targetP = Math.min(1, Math.max(0, -r.top / (r.height || 1))); // 0 at top, 1 once the hero is scrolled past
+        targetP = Math.min(1, Math.max(0, -r.top / (r.height || 1)));
       }
 
       if (doMouse) {
@@ -168,22 +197,26 @@ import prices from "../data/prices.json";
       if (spiral) {
         addEventListener("scroll", readScroll, { passive: true });
         readScroll();
-        curP = targetP; // start matched (no jump if loaded mid-page)
+        curP = targetP;
       }
       if (doMouse || spiral) {
         (function raf() {
+          requestAnimationFrame(raf);
+          if (!inView && !doMouse) return;
           mx += (mtx - mx) * 0.06; my += (mty - my) * 0.06;
           if (spiral) {
-            curP += (targetP - curP) * 0.08;           // ease toward real scroll -> cup trails a bit behind you
+            curP += (targetP - curP) * 0.08;
             var descend = curP * innerHeight * 0.18;
             wrap.style.opacity = curP < 0.45 ? 1 : Math.max(0, 1 - (curP - 0.45) / 0.4);
             var idx = Math.round(curP * (N - 1));
-            if (idx !== curFrame) { curFrame = idx; img.src = frames[idx].src; }
+            if (idx !== curFrame && bitmaps[idx]) {
+              curFrame = idx;
+              ctx.drawImage(bitmaps[idx], 0, 0, CW, CH);
+            }
             wrap.style.transform = "translate(" + mx.toFixed(1) + "px," + (my + descend).toFixed(1) + "px)";
           } else {
             wrap.style.transform = "translate(" + mx.toFixed(1) + "px," + my.toFixed(1) + "px)";
           }
-          requestAnimationFrame(raf);
         })();
       }
     })();
