@@ -208,7 +208,8 @@ import prices from "../data/prices.json";
             curP += (targetP - curP) * 0.04;
             var descend = curP * innerHeight * 0.18;
             wrap.style.opacity = curP < 0.45 ? 1 : Math.max(0, 1 - (curP - 0.45) / 0.4);
-            var idx = Math.round(curP * (N - 1));
+            var spinP = Math.min(1, curP / 0.25); // spin completes in first 25% of scroll, then holds
+            var idx = Math.round(spinP * (N - 1));
             if (idx !== curFrame && bitmaps[idx]) {
               curFrame = idx;
               ctx.drawImage(bitmaps[idx], 0, 0, CW, CH);
