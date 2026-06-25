@@ -321,7 +321,7 @@ body{top:0!important}
 
 /* ---- homepage hero cup (migrated from index inline styles) ---- */
 .hero-cup-wrap{position:fixed;top:0;right:3%;bottom:0;width:48%;z-index:1;display:flex;align-items:center;justify-content:center;pointer-events:none;will-change:transform}
-.hero-cup{height:86%;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 22px 28px rgba(120,40,30,.18));animation:cupfloat 6.5s ease-in-out infinite;will-change:transform}
+.hero-cup{height:86%;width:auto;max-width:100%;object-fit:contain;will-change:transform}
 @keyframes cupfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
 .hero .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(30% 42% at 76% 50%, rgba(216,162,74,.30), rgba(200,80,60,.16) 52%, transparent 72%)}
 
